@@ -1,0 +1,510 @@
+[
+  {
+    "slug": "unioni-di-categoria",
+    "title": "Unioni di categoria",
+    "items": [
+      {
+        "name": "CONFAPI ANIEM",
+        "subtitle": "Unione nazionale delle imprese edili manifatturiere e settori affini",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: confapianiem@confapi.org",
+          "Presidente: Avisiano Pellegrini"
+        ],
+        "image": "/assets/system/unioni-di-categoria-0.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "UNIGEC",
+        "subtitle": "Unione nazionale piccola e media industria grafica editoriale cartaia cartotecnica e affine",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: unigec@confapi.org",
+          "Presidente: Marco Tenaglia"
+        ],
+        "image": "/assets/system/unioni-di-categoria-1.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "UNIMATICA",
+        "subtitle": "Unione italiana piccole e medie imprese per il trattamento dell'informazione",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: unimatica@confapi.org",
+          "Presidente: Paolo Landolfo"
+        ],
+        "image": "/assets/system/unioni-di-categoria-2.jpg",
+        "links": [
+          {
+            "label": "www",
+            "url": "https://www.unimaticaspa.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "UNIONALIMENTARI",
+        "subtitle": "Unione nazionale piccola e media industria alimentare",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 - 06/5121752 – Fax: 06/6791488 - 06/5122497",
+          "Email: info@unionalimentari.com",
+          "Presidente: Antonio Casalini"
+        ],
+        "image": "/assets/system/unioni-di-categoria-3.jpg",
+        "links": [
+          {
+            "label": "www",
+            "url": "http://www.unionalimentari.com/en/homepage.aspx"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "UNIONCHIMICA",
+        "subtitle": "Unione nazionale della piccola e media industria chimica, conciaria,materie plastiche, gomma, vetro, ceramica e prodotti affini",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: unionchimica@confapi.org",
+          "Presidente: Delio Dalola"
+        ],
+        "image": "/assets/system/unioni-di-categoria-4.jpg",
+        "links": [
+          {
+            "label": "Delio Dalola",
+            "url": "http://www.confapi.org/images/nostre/biografie/Delio_Dalola.pdf"
+          },
+          {
+            "label": "www",
+            "url": "http://www.unionchimica.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "UNIONMECCANICA",
+        "subtitle": "Unione nazionale della piccola e media industria metalmeccanica",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: unionmeccanica@confapi.org",
+          "Presidente: Gian Piero Cozzo"
+        ],
+        "image": "/assets/system/unioni-di-categoria-5.jpg",
+        "links": [
+          {
+            "label": "Gian Piero Cozzo",
+            "url": "http://www.confapi.org/images/nostre/biografie/Gian_Piero_Cozzo.pdf"
+          },
+          {
+            "label": "www",
+            "url": "http://www.unionmeccanica.it/it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "UNIONTESSILE",
+        "subtitle": "Unione nazionale piccola e media industria tessile-abbigliamento",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: uniontessile@confapi.org",
+          "Presidente: Patrizia Borgheresi"
+        ],
+        "image": "/assets/system/unioni-di-categoria-6.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "UNITAL",
+        "subtitle": "Unione italiana arredi legno",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: unital@confapi.org",
+          "Presidente: Riccardo Montesi"
+        ],
+        "image": "/assets/system/unioni-di-categoria-7.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "CONFAPI SANITÀ",
+        "subtitle": "",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: sanita@confapi.org",
+          "Presidente: Massimo Pulin"
+        ],
+        "image": "/assets/system/unioni-di-categoria-8.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "CONFAPI TURISMO",
+        "subtitle": "",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: turismo@confapi.org",
+          "Presidente: Salvatore Angius"
+        ],
+        "image": "/assets/system/unioni-di-categoria-9.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "GIC",
+        "subtitle": "Gruppo nazionale dei giovani imprenditori Confapi",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: giovani@confapi.it",
+          "Presidente: Angelo Bruscino"
+        ],
+        "image": "/assets/system/unioni-di-categoria-10.jpg",
+        "links": [
+          {
+            "label": "Angelo Bruscino",
+            "url": "http://www.confapi.org/images/nostre/biografie/Angelo_Bruscino.pdf"
+          }
+        ],
+        "group": "Gruppi del Sistema CONFAPI"
+      },
+      {
+        "name": "CONFAPID",
+        "subtitle": "Gruppo nazionale delle donne imprenditrici",
+        "paragraphs": [
+          "Via della Colonna Antonina, 52 – 00186 ROMA",
+          "Tel: 06/690151 – Fax: 06/6791488",
+          "Email: segreteria.confapid@confapi.org"
+        ],
+        "image": "/assets/system/unioni-di-categoria-11.jpg",
+        "links": [],
+        "group": "Gruppi del Sistema CONFAPI"
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/unioni-di-categoria"
+  },
+  {
+    "slug": "federazioni-regionali",
+    "title": "Federazioni regionali",
+    "items": [
+      {
+        "name": "CONFAPI LAZIO",
+        "subtitle": "",
+        "paragraphs": [
+          "Via Santa Croce in Gerusalemme, 63 - 00185 ROMA (RM)",
+          "Tel: 333-7774975",
+          "Email: segreteria@confapilazio.it",
+          "Presidente: Massimo Tabacchiera"
+        ],
+        "image": "/assets/system/federazioni-regionali-0.jpg",
+        "links": [],
+        "group": ""
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/federazioni-regionali"
+  },
+  {
+    "slug": "associazioni-territoriali",
+    "title": "Associazioni territoriali",
+    "items": [
+      {
+        "name": "CONFAPI FROSINONE",
+        "subtitle": "",
+        "paragraphs": [
+          "Via Morolense, 15-03100 Loc. Le Torri - FROSINONE (FR)",
+          "Email: segreteria@confapifrosinone.it",
+          "Presidente: Antonella Mazzocchia"
+        ],
+        "image": "/assets/system/associazioni-territoriali-0.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "CONFAPI LATINA",
+        "subtitle": "",
+        "paragraphs": [
+          "Via Aldo Moro, 41/A – 04011 Aprilia (LT)",
+          "Tel: 06/87690626 – Fax: 06/87690626",
+          "Email: info@confapilatina.it",
+          "Presidente: Michele Volpe"
+        ],
+        "image": "/assets/system/associazioni-territoriali-1.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.confapilatina.it/"
+          },
+          {
+            "label": "www",
+            "url": "http://www.confapilatina.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "CONFAPI ROMA",
+        "subtitle": "",
+        "paragraphs": [
+          "Via Santa Croce in Gerusalemme, 63 - 00185 ROMA",
+          "Tel: 333-7774975",
+          "Email: segreteria@confapiroma.it",
+          "Presidente: Massimo Tabacchiera"
+        ],
+        "image": "/assets/system/associazioni-territoriali-2.jpg",
+        "links": [],
+        "group": ""
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/associazioni-territoriali"
+  },
+  {
+    "slug": "associazioni-di-categoria",
+    "title": "Associazioni di categoria",
+    "items": [
+      {
+        "name": "TESSILIVARI",
+        "subtitle": "Federazione italiana industriali dei tessilivari e del cappello",
+        "paragraphs": [
+          "Via Tommaso da Gazzaniga, 9/4 – 20121 MILANO",
+          "Tel: 02/86465011 – Fax: 02/86465009",
+          "Email: tessilivari@tessilivari.it",
+          "Presidente: Matteo Cavelli"
+        ],
+        "image": "/assets/system/associazioni-di-categoria-0.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.tessilivari.it/"
+          },
+          {
+            "label": "www",
+            "url": "http://www.tessilivari.it/"
+          }
+        ],
+        "group": ""
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/associazioni-di-categoria"
+  },
+  {
+    "slug": "enti-bilaterali",
+    "title": "Enti bilaterali",
+    "items": [
+      {
+        "name": "ENFEA",
+        "subtitle": "ENFEA – Ente Nazionale per la Formazione e l’Ambiente",
+        "paragraphs": [
+          "È un organo bilaterale, costituito da Confapi e CGIL, CISL, UIL, deputato a dare attuazione alle disposizioni contrattuali in materia di bilateralità. Fornisce servizi per lo sviluppo dell’apprendistato (raccolta e validazione dei piani formativi individuali e attività formativa diretta); per il sostegno al reddito (interventi anche salariali una tantum per i lavoratori e integrazione della disciplina sulla malattia); per l’assistenza contrattuale per rinnovi dei Contratti Nazionali di Lavoro a livello nazionale e territoriale nonché consulenza sull’applicazione dei CCNL di categoria direttamente ad aziende, consulenti del lavoro e associazioni territoriali."
+        ],
+        "image": "/assets/system/enti-bilaterali-0.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.enfea.it/index.jsp?show=aziende"
+          },
+          {
+            "label": "Qui la circolare esplicativa",
+            "url": "http://www.confapi.org/images/img/pdf/enti_bilaterali/CIRCOLARE_ESPLICATIVA_ENFEA_OPNC.pdf"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "OPNC",
+        "subtitle": "OPNC – Organismo Paritetico Nazionale Confapi",
+        "paragraphs": [
+          "È un organo bilaterale, costituito da Confapi e CGIL, CISL, UIL deputato a dare attuazione alle disposizioni contrattuali in materia di bilateralità. Ha competenza esclusiva in materia di salute e sicurezza: la raccolta e il monitoraggio delle designazioni, da parte degli organismi territoriali, dei rappresentanti dei lavoratori per la sicurezza (RLS) e dei rappresentanti dei lavoratori per la sicurezza territoriali (RLST); la promozione della formazione per i componenti degli organismi paritetici, per i lavoratori e per RLS e RLST, per i dirigenti e i datori di lavoro; la promozione e il coordinamento di interventi formativi in materia di igiene e sicurezza sul lavoro."
+        ],
+        "image": "/assets/system/enti-bilaterali-1.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "FAPI",
+        "subtitle": "FAPI – Fondo Formazione PMI",
+        "paragraphs": [
+          "È un fondo interprofessionale paritetico, composto da Confapi, CGIL, CISL e UIL per promuovere la formazione continua nelle PMI, intesa come strumento essenziale per la competitività delle imprese e come garanzia occupazionale per i lavoratori. Le attività formative dei lavoratori e delle lavoratrici aderenti alle aziende iscritte, previste dalle iniziative che annualmente il Fondo promuove, vengono finanziate attraverso la raccolta dello 0,30% dei contributi che mensilmente le imprese versano all’INPS e che l’INPS versa poi ai Fondi cui le aziende aderiscono."
+        ],
+        "image": "/assets/system/enti-bilaterali-2.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "https://www.fondopmi.com/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "FONDAPI",
+        "subtitle": "FONDAPI – Fondo Nazionale Pensione complementare per i lavoratori delle piccole e medie imprese.",
+        "paragraphs": [
+          "È un fondo pensione complementare a capitalizzazione per i lavoratori dipendenti delle piccole e medie imprese, operante in regime di contribuzione definita, finalizzato all’erogazione di trattamenti pensionistici complementari del sistema obbligatorio."
+        ],
+        "image": "/assets/system/enti-bilaterali-3.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.fondapi.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "EBM",
+        "subtitle": "EBM – Ente Bilaterale Metalmeccanici",
+        "paragraphs": [
+          "L’E.B.M. è l’Ente Bilaterale del settore metalmeccanico, senza fini di lucro, volto a promuovere e favorire le prestazioni, previste dal CCNL del 29 luglio 2013 e dal successivo verbale di incontro del 4 ottobre 2013, in tema di diritto alle prestazioni della bilateralità, costituito, con accordo sottoscritto in data 15 novembre 2013 tra Unionmeccanica Confapi e Fiom Cgil, l’E.B.M. progetta e realizza le azioni in materia di Sicurezza, Sviluppo Bilateralità, Sostegno al Reddito e Osservatorio della Contrattazione e del Lavoro.",
+          "Gli Organi di E.B.M.",
+          "Gli organi che compongono L’E.B.M. sono rappresentati dall’Assemblea, dal Comitato Esecutivo, dal Presidente e Vice Presidente e dal Collegio dei Revisori dei Conti.",
+          "L’E.B.M. è inoltre demandata alla stampa e alla distribuzione dei testi contrattuali.",
+          "L’E.B.M. è finanziato, secondo quanto previsto dal sopracitato CCNL, da fondi specifici di seguito riportati:",
+          "Fondo Sicurezza Metalmeccanici",
+          "18 euro annui (1,50 euro mensili x 12 mensilità) per ciascun lavoratore dovuta dalle aziende prive di RLS6 euro annui (0,50 euro mensili x 12 mensilità) per ciascun lavoratore per le aziende con il RLS.",
+          "Fondo Sviluppo Bilateralità Metalmeccanici",
+          "6 euro annui (0,50 euro mensili x 12 mensilità) per ciascun lavoratore a tempo pieno",
+          "3 euro annui (0,25 euro mensili x 12 mensilità) per ciascun lavoratore Part-Time fino a 20 ore.",
+          "Fondo Sostegno al Reddito Metalmeccanici28 euro annui (2,33 euro mensili x 12 mensilità) per ciascun lavoratore",
+          "Osservatorio della Contrattazione e del Lavoro del Settore Metalmeccanico",
+          "8 euro annui (0,66 euro mensili x 12 mensilità) per ciascun lavoratore",
+          "12 euro annui (1 euro mensile x 12 mensilità) per ciascun lavoratore",
+          "I versamenti delle sopra citate somme vanno effettuati attraverso la procedura F24/UNIEMENS utilizzando il codice causale “EBMC” attribuito dall’Agenzia delle Entrate."
+        ],
+        "image": "/assets/system/enti-bilaterali-4.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.entebilateralemetalmeccanici.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "OPNM",
+        "subtitle": "OPNM – Organismo Paritetico Nazionale Metalmeccanici",
+        "paragraphs": [
+          "L’O.P.N.M. è Organismo Paritetico Nazionale Metalmeccanici, è parte integrande dell’E.B.M. e si riferisce al Fondo Sicurezza Metalmeccanici, tra i compiti dell’O.P.N.M. troviamo la definizione delle politiche, gestione e monitoraggio delle iniziative e delle attività in materia di salute sicurezza sul lavoro, elaborazione di proposte e linee guida per la formazione dei lavoratori e Rappresentanti dei lavoratori per la sicurezza (R.L.S.) e dei Rappresentanti dei lavoratori per la sicurezza territoriali (R.L.S.T), elaborazione di programmi di formazione per le figure dei dirigenti, degli R.S.P.P, dei preposti e dei datori di lavoro, promozione e coordinamento degli interventi formativi e di altra natura nel campo dell'igiene e della sicurezza del lavoro, promozione di ogni altra azione di analisi, ricerca e studio in materia di salute e sicurezza sui luoghi di lavoro.",
+          "Gli Organi di O.P.N.M.",
+          "Gli organi che compongono l’O.P.N.M. sono rappresentati da un Presidente, da un Vicepresidente, da un componente designato da Unionmeccanica-Confapi e da un componente designato dalla Fiom- Cgil."
+        ],
+        "image": "/assets/system/enti-bilaterali-5.jpg",
+        "links": [],
+        "group": ""
+      },
+      {
+        "name": "FASDAPI",
+        "subtitle": "FASDAPI – Fondo di assistenza e solidarietà per dirigenti e quadri superiori della piccola e media industria",
+        "paragraphs": [
+          "Ha esclusive finalità assistenziali, solidaristiche e mutualistiche e garantisce i benefici derivanti dalle coperture assicurative previste dall'art. 12 e dall’art. 15 del Contratto collettivo per i Dirigenti e i Quadri Superiori delle PMI"
+        ],
+        "image": "/assets/system/enti-bilaterali-6.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.fasdapi.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "PREVINDAPI",
+        "subtitle": "PREVINDAPI – Fondo pensione per i dirigenti e i quadri superiori della piccola e media industria",
+        "paragraphs": [
+          "Cura e gestisce i flussi contributivi versati dalle aziende, comprensivi della quota a carico dei lavoratori aderenti e della quota o dell’intero T.F.R., destinati alla previdenza complementare. Investe i contributi facendo ricorso a strumenti sia assicurativi che finanziari, per garantire a ciascun iscritto una rendita previdenziale aggiuntiva a quella di base."
+        ],
+        "image": "/assets/system/enti-bilaterali-7.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.previndapi.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "PMI",
+        "subtitle": "FONDO DIRIGENTI PMI – Fondo per la formazione professionale continua dei dirigenti delle piccole e medie imprese industriali",
+        "paragraphs": [
+          "Promuove azioni di formazione concordate tra le Parti per favorire lo sviluppo, il potenziamento e l'innovazione delle competenze manageriali nelle PMI"
+        ],
+        "image": "/assets/system/enti-bilaterali-8.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.fondodirigentipmi.it/"
+          }
+        ],
+        "group": ""
+      },
+      {
+        "name": "PmiWelfareManager",
+        "subtitle": "PmiWelfareManager",
+        "paragraphs": [
+          "Un fondo destinato a favorire il reinserimento nel mondo del lavoro di dirigenti e quadri superiori attraverso strumenti che verranno pariteticamente e congiuntamente attivati e gestiti da Federmanage-Confapi all’interno del fondo medesimo nonché, in via subordinata, a erogare prestazioni di sostegno al reddito."
+        ],
+        "image": "/assets/system/enti-bilaterali-9.jpg",
+        "links": [
+          {
+            "label": "Sito ufficiale",
+            "url": "http://www.pmiwfm.it/"
+          }
+        ],
+        "group": ""
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/enti-bilaterali"
+  },
+  {
+    "slug": "video",
+    "title": "Video",
+    "items": [
+      {
+        "name": "Intervista a Vincenzo Elifani, vicepresidente nazionale di Confapi e presidente di Confapi Lazio",
+        "url": "https://www.youtube.com/embed/vnbfAOkak8s?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "PMI, la spada di Damocle di una crisi senza fine",
+        "url": "https://www.youtube.com/embed/45UUVHUVXbE?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "Caporalato, le proposte di Confapi Calabria",
+        "url": "https://www.youtube.com/embed/Sg7ZPvQgYRU?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "Napoli, via ai corsi formazione della Confapi",
+        "url": "https://play.ilmattino.it/Play/Index/45109f3e-90e8-4911-8ead-624dfa598940?&autoplay=false&width=640&height=405&aplay=false"
+      },
+      {
+        "name": "Rinnovo contrattuale Unionmeccanica Confapi",
+        "url": "https://radiogold.it/?p=96374&embed"
+      },
+      {
+        "name": "Radioinblu: intervista al Presidente Casasco",
+        "url": "https://www.youtube.com/embed/ud_rUcV5--I?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "Reportage prima parte",
+        "url": "https://www.youtube.com/embed/AIggWSi5YhQ?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "Reportage parte seconda",
+        "url": "https://www.youtube.com/embed/YnebfyGuWz4?iv_load_policy=3&rel=1"
+      },
+      {
+        "name": "70 anni",
+        "url": "https://www.youtube.com/embed/BLtb0g9AFAA?iv_load_policy=3&rel=1"
+      }
+    ],
+    "source": "https://www.confapiroma.it/index.php/sistema-confapi/video"
+  }
+]

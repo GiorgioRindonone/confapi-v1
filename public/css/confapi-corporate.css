@@ -1,0 +1,1285 @@
+/* ==========================================================================
+   CONFAPI ROMA & LAZIO — DESIGN SYSTEM CORPORATE ISTITUZIONALE
+   Palette Ufficiale: Confapi Deep Navy, Confapi Royal Blue, Confapi Sun Gold
+   ========================================================================== */
+
+:root {
+  /* Brand Official Colors (from Confapi Brand Guidelines) */
+  --confapi-navy: #002B49;          /* Blu Istituzionale Primario */
+  --confapi-navy-dark: #001B30;     /* Navy Profondo per Header Top e Footer */
+  --confapi-blue: #005697;          /* Blu Confapi Logo & Interazioni */
+  --confapi-blue-light: #0077C8;    /* Azzurro Brillante Accenti */
+  --confapi-blue-subtle: #EBF4FC;   /* Sfondo azzurro chiarissimo per badge/card */
+  
+  --confapi-gold: #F39200;          /* Oro/Giallo Confapi Alveare */
+  --confapi-gold-hover: #D97E00;    /* Oro scuro per hover */
+  --confapi-gold-light: #FFF8EB;    /* Sfondo oro chiarissimo */
+  --confapi-gold-border: #FCD68A;   /* Bordo dorato tenue */
+  
+  --tricolore-green: #009246;       /* Verde Bandiera Italiana */
+  --tricolore-white: #FFFFFF;
+  --tricolore-red: #CE2B37;         /* Rosso Bandiera Italiana */
+  
+  --confapi-emerald: #059669;       /* Verde per Bandi e Fondi Attivi */
+  --confapi-emerald-bg: #ECFDF5;
+  
+  /* Neutral Palette (Light & Clean Institutional Standard) */
+  --bg-page: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #F1F5F9;
+  --bg-surface-warm: #FBFBFC;
+  
+  --text-primary: #0F172A;         /* Slate Navy 900 per massima leggibilità */
+  --text-secondary: #334155;       /* Slate 700 per paragrafi */
+  --text-muted: #64748B;           /* Slate 500 per metadati e note */
+  --text-light: #94A3B8;
+  
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-navy: #002B49;
+  
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', Consolas, monospace;
+  
+  /* Shadows & Elevation */
+  --shadow-xs: 0 1px 2px rgba(0, 43, 73, 0.05);
+  --shadow-sm: 0 2px 8px rgba(0, 43, 73, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 43, 73, 0.09);
+  --shadow-lg: 0 16px 40px rgba(0, 43, 73, 0.12);
+  --shadow-gold: 0 8px 25px rgba(243, 146, 0, 0.25);
+  
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  --max-width: 1280px;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--confapi-navy);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--confapi-blue);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--confapi-navy);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   1. TOP INSTITUTIONAL BAR & TRICOLORE
+   ========================================================================== */
+.tricolore-strip {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, 
+    var(--tricolore-green) 0%, var(--tricolore-green) 33.33%, 
+    #FFFFFF 33.33%, #FFFFFF 66.66%, 
+    var(--tricolore-red) 66.66%, var(--tricolore-red) 100%
+  );
+}
+
+.institutional-top-bar {
+  background: var(--confapi-navy-dark);
+  color: #CBD5E1;
+  font-size: 0.8125rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-bar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.top-bar-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--confapi-gold);
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-bar-link {
+  color: #E2E8F0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+}
+
+.top-bar-link:hover {
+  color: var(--confapi-gold);
+}
+
+.top-cms-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF !important;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.top-cms-btn:hover {
+  background: var(--confapi-blue);
+  border-color: var(--confapi-blue);
+}
+
+/* ==========================================================================
+   2. MAIN HEADER & NAVIGATION
+   ========================================================================== */
+.main-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition);
+}
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand-logo-img {
+  height: 54px;
+  width: auto;
+  display: block;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-light);
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title-main {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--confapi-navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.brand-title-sub {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--confapi-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.nav-menu-list {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--confapi-navy);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--confapi-gold);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* ==========================================================================
+   BUTTONS (Official Confapi Hierarchy)
+   ========================================================================== */
+.btn-confapi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primario: Confapi Gold con testo scuro istituzionale */
+.btn-confapi-gold {
+  background: var(--confapi-gold);
+  color: var(--confapi-navy-dark) !important;
+  box-shadow: 0 4px 14px rgba(243, 146, 0, 0.25);
+}
+.btn-confapi-gold:hover {
+  background: var(--confapi-gold-hover);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(243, 146, 0, 0.35);
+}
+
+/* Secondario: Confapi Navy Solid */
+.btn-confapi-navy {
+  background: var(--confapi-navy);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 43, 73, 0.2);
+}
+.btn-confapi-navy:hover {
+  background: var(--confapi-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 86, 151, 0.3);
+}
+
+/* Terziario: Outline Navy */
+.btn-confapi-outline {
+  background: transparent;
+  border-color: var(--confapi-navy);
+  color: var(--confapi-navy) !important;
+}
+.btn-confapi-outline:hover {
+  background: var(--confapi-navy);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.btn-confapi-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   3. INSTITUTIONAL TICKER & ECONOMIC BAROMETER
+   ========================================================================== */
+.institutional-ticker-bar {
+  background: var(--confapi-navy);
+  color: #FFFFFF;
+  padding: 0.6rem 0;
+  overflow: hidden;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ticker-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+}
+
+.ticker-badge-title {
+  background: var(--confapi-gold);
+  color: var(--confapi-navy-dark);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.ticker-stream-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  animation: streamTicker 40s linear infinite;
+}
+
+@keyframes streamTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #CBD5E1;
+}
+
+.ticker-item strong {
+  color: #FFFFFF;
+}
+
+.ticker-tag-green {
+  background: var(--confapi-emerald);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   4. HERO SECTION (Istituzionale, Chiara, Autorevole)
+   ========================================================================== */
+.hero-institutional {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 50%, #EBF4FC 100%);
+  border-bottom: 1px solid var(--border-light);
+  padding: 4.5rem 0 4rem;
+  position: relative;
+}
+
+.hero-institutional::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: radial-gradient(#005697 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--confapi-gold-light);
+  border: 1px solid var(--confapi-gold-border);
+  color: #B45309;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-main-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  color: var(--confapi-navy);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-main-title span.blue-highlight {
+  color: var(--confapi-blue);
+}
+
+.hero-lead-text {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+  max-width: 620px;
+}
+
+.hero-action-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Card Circolare in Primo Piano (Hero Right) */
+.hero-featured-gazette {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--confapi-blue);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.gazette-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.gazette-cat-pill {
+  background: var(--confapi-blue-subtle);
+  color: var(--confapi-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.gazette-date-text {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.gazette-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--confapi-navy);
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.gazette-excerpt-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.gazette-benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+  padding: 1rem;
+  background: var(--bg-surface-alt);
+  border-radius: var(--radius-md);
+}
+
+.gazette-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.gazette-benefits-list svg {
+  width: 16px;
+  height: 16px;
+  color: var(--confapi-emerald);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   5. KEY NUMBERS & IMPACT BAR
+   ========================================================================== */
+.impact-stats-section {
+  background: var(--confapi-navy);
+  color: #FFFFFF;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-4col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+}
+
+.stat-box-col {
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--confapi-gold);
+}
+
+.stat-number-display {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.stat-number-display span.gold {
+  color: var(--confapi-gold);
+}
+
+.stat-label-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   6. UNIONI DI CATEGORIA (La vera articolazione di Confapi)
+   ========================================================================== */
+.unioni-section {
+  padding: 5.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.section-header-corporate {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 3.5rem;
+}
+
+.section-pre-tag {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--confapi-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.section-title-large {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--confapi-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.section-sub-desc {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.unioni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.unione-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.unione-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--confapi-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.unione-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--confapi-blue-subtle);
+  color: var(--confapi-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.unione-icon-badge svg {
+  width: 24px;
+  height: 24px;
+}
+
+.unione-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--confapi-navy);
+}
+
+.unione-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.unione-ccnl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--confapi-navy);
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   7. I 6 PILASTRI DEI SERVIZI (Matrice Corporate)
+   ========================================================================== */
+.services-matrix-section {
+  padding: 5.5rem 0;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.services-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-corporate-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-xs);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-corporate-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--confapi-blue);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.service-icon-square {
+  width: 46px;
+  height: 46px;
+  background: var(--confapi-navy);
+  color: var(--confapi-gold);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-icon-square svg {
+  width: 22px;
+  height: 22px;
+}
+
+.service-corporate-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--confapi-navy);
+  line-height: 1.3;
+}
+
+.service-corporate-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.service-points-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.service-points-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.service-points-checklist svg {
+  width: 15px;
+  height: 15px;
+  color: var(--confapi-blue);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   8. MEMBERSHIP VALUE CALCULATOR (Onboarding Interattivo)
+   ========================================================================== */
+.membership-calc-section {
+  padding: 5.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.calculator-card-container {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: var(--shadow-md);
+}
+
+.calc-steps-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.calc-step-tab {
+  padding: 1rem;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.calc-step-tab.active {
+  background: var(--confapi-blue-subtle);
+  border-color: var(--confapi-blue);
+  color: var(--confapi-navy);
+}
+
+.calc-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.calc-step-tab.active .calc-step-num {
+  background: var(--confapi-blue);
+  color: #FFFFFF;
+}
+
+.size-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.size-option-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.size-option-card:hover {
+  border-color: var(--confapi-blue);
+  transform: translateY(-2px);
+}
+
+.size-option-card.selected {
+  border-color: var(--confapi-navy);
+  background: var(--confapi-blue-subtle);
+}
+
+.size-option-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.size-option-card p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.savings-highlight-banner {
+  background: linear-gradient(135deg, var(--confapi-emerald-bg) 0%, #D1FAE5 100%);
+  border: 1px solid #A7F3D0;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.savings-val-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--confapi-emerald);
+  line-height: 1;
+  margin: 0.5rem 0;
+}
+
+/* ==========================================================================
+   9. NEWSROOM & SALA STAMPA (Live Node.js Backend API)
+   ========================================================================== */
+.newsroom-section {
+  padding: 5.5rem 0;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.news-filter-nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.news-filter-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.news-filter-btn:hover, .news-filter-btn.active {
+  background: var(--confapi-navy);
+  color: #FFFFFF;
+  border-color: var(--confapi-navy);
+}
+
+.newsroom-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.article-card-corporate {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.article-card-corporate:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--confapi-blue);
+}
+
+.article-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+
+.article-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.article-card-corporate:hover .article-img-wrap img {
+  transform: scale(1.05);
+}
+
+.article-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--confapi-navy);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.article-content-body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.article-card-corporate h3 {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  color: var(--confapi-navy);
+}
+
+.article-card-corporate p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.article-read-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--confapi-blue);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ==========================================================================
+   10. CONVENZIONI NAZIONALI (Partner Network)
+   ========================================================================== */
+.convenzioni-section {
+  padding: 5.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.convenzioni-grid-4col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.convenzione-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.convenzione-card:hover {
+  border-color: var(--confapi-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.convenzione-card h4 {
+  font-size: 1.1rem;
+  color: var(--confapi-navy);
+  margin-bottom: 0.4rem;
+}
+
+.convenzione-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   11. MODAL ARTICLE READER (Markdown Rendering Pulito)
+   ========================================================================== */
+.modal-reader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 43, 73, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.modal-reader-overlay.active {
+  display: flex;
+}
+
+.modal-reader-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-reader-head {
+  padding: 1.5rem 2rem;
+  background: var(--bg-surface-alt);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-reader-content {
+  padding: 2.5rem 3rem;
+  overflow-y: auto;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.modal-reader-content h1 {
+  font-size: 2rem;
+  color: var(--confapi-navy);
+  margin-bottom: 1.25rem;
+}
+
+.modal-reader-content h2 {
+  font-size: 1.45rem;
+  color: var(--confapi-navy);
+  margin: 2rem 0 1rem;
+  border-bottom: 2px solid var(--confapi-gold);
+  padding-bottom: 0.4rem;
+}
+
+.modal-reader-content h3 {
+  font-size: 1.2rem;
+  color: var(--confapi-blue);
+  margin: 1.5rem 0 0.75rem;
+}
+
+.modal-reader-content p {
+  margin-bottom: 1.25rem;
+}
+
+.modal-reader-content blockquote {
+  border-left: 4px solid var(--confapi-blue);
+  background: var(--confapi-blue-subtle);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--confapi-navy);
+}
+
+.modal-reader-content ul, .modal-reader-content ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.modal-reader-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   12. INSTITUTIONAL FOOTER (Confapi Navy Profondo)
+   ========================================================================== */
+.footer-confapi {
+  background: var(--confapi-navy-dark);
+  color: #94A3B8;
+  padding: 5rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-info p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 1.25rem 0;
+  color: #CBD5E1;
+}
+
+.footer-tax-badge {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--confapi-gold);
+}
+
+.footer-col h4 {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links-list a {
+  color: #CBD5E1;
+  font-size: 0.9375rem;
+  transition: var(--transition);
+}
+
+.footer-links-list a:hover {
+  color: var(--confapi-gold);
+  padding-left: 4px;
+}
+
+.footer-bottom-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   RESPONSIVE QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .unioni-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid-3col { grid-template-columns: repeat(2, 1fr); }
+  .newsroom-grid-3col { grid-template-columns: repeat(2, 1fr); }
+  .stats-4col-grid { grid-template-columns: repeat(2, 1fr); }
+  .size-selector-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-top-grid { grid-template-columns: 1fr 1fr; }
+  .nav-menu-list { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hero-main-title { font-size: 2.25rem; }
+  .unioni-grid { grid-template-columns: 1fr; }
+  .services-grid-3col { grid-template-columns: 1fr; }
+  .newsroom-grid-3col { grid-template-columns: 1fr; }
+  .stats-4col-grid { grid-template-columns: 1fr; }
+  .size-selector-grid { grid-template-columns: 1fr; }
+  .convenzioni-grid-4col { grid-template-columns: repeat(2, 1fr); }
+  .footer-top-grid { grid-template-columns: 1fr; }
+  .footer-bottom-row { flex-direction: column; gap: 1rem; text-align: center; }
+}

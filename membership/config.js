@@ -1,0 +1,1 @@
+const path=require('path');const root=path.resolve(__dirname,'..');module.exports={root,dataDir:path.resolve(process.env.V1_DATA_DIR||path.join(root,'backend/data'),'adesioni'),production:process.env.NODE_ENV==='production'&&process.env.CONFAPI_LOCAL_PREVIEW!=='1'};

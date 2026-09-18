@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confapi Roma - Gestione Blog & Contenuti CMS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- CDN Marked.js for fast live markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Admin Navigation -->
+  <header class="admin-header">
+    <div class="brand-wrapper">
+      <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Logo" class="brand-logo" onerror="this.style.display='none'">
+      <div class="brand-title">
+        <h1>CONFAPI ROMA & LAZIO</h1>
+        <span>Redazione e gestione richieste</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="/" target="_blank" class="btn btn-outline btn-sm">🌐 Visualizza Sito Corporate</a>
+      <button class="btn btn-gold" id="btn-new-article">➕ Nuovo Articolo</button>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="admin-container">
+
+    <!-- KPI Metric Cards -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📰</div>
+        <div class="stat-info">
+          <h3 id="stat-total-articles">77</h3>
+          <p>Articoli Totali</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <h3 id="stat-published-articles">77</h3>
+          <p>Articoli Pubblicati</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏷️</div>
+        <div class="stat-info">
+          <h3 id="stat-categories">7</h3>
+          <p>Aree Tematiche</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-info">
+          <h3 id="stat-leads">0</h3>
+          <p>Richieste Nuovi Soci</p>
+        </div>
+      </div>
+    </section>
+
+    <p style="margin:1rem 0;color:#475569">Gestisci le pubblicazioni del sito e ritrova qui i contatti inviati dalle imprese.</p>
+    <!-- Navigation Tabs -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" id="tab-articles-btn">📰 Gestione Articoli Blog</button>
+      <button class="tab-btn" id="tab-leads-btn">💼 Richieste Nuovi Soci (Adesioni)</button>
+    </nav>
+
+    <!-- Section: Articles Management -->
+    <div id="section-articles">
+      <!-- Toolbar Filter -->
+      <div class="toolbar-row">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" id="search-input" placeholder="Cerca tra gli articoli (titolo, testo, categoria, tag)...">
+        </div>
+        <div class="filter-group">
+          <select id="filter-category" class="select-custom">
+            <option value="Tutte">Tutte le Categorie</option>
+            <option value="Finanza, Bandi & Fisco">Finanza, Bandi & Fisco</option>
+            <option value="Lavoro, Contratti & Welfare">Lavoro, Contratti & Welfare</option>
+            <option value="Edilizia, Appalti & Territorio (ANIEM)">Edilizia, Appalti & Territorio (ANIEM)</option>
+            <option value="Innovazione, Digitale & Transizione 5.0">Innovazione & Digitale</option>
+            <option value="Istituzioni, Normativa & Comunicati">Istituzioni & Comunicati</option>
+            <option value="Europa & Internazionalizzazione">Europa & Internazionale</option>
+            <option value="Attualità PMI">Attualità PMI</option>
+          </select>
+          <select id="filter-status" class="select-custom">
+            <option value="all">Tutti gli Stati</option>
+            <option value="published">Solo Pubblicati</option>
+            <option value="draft">Solo Bozze</option>
+          </select>
+          <select id="filter-sort" class="select-custom">
+            <option value="newest">I più recenti</option>
+            <option value="views">Più visualizzati</option>
+            <option value="oldest">Meno recenti</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Articles Table -->
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 70px;">ID</th>
+              <th>Titolo & Sommario</th>
+              <th>Categoria</th>
+              <th>Data</th>
+              <th>Tempo Lettura</th>
+              <th>Stato</th>
+              <th style="text-align: right;">Azioni</th>
+            </tr>
+          </thead>
+          <tbody id="articles-table-body">
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 2rem;">Caricamento articoli in corso...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section: Membership Leads -->
+    <div id="section-leads" style="display: none;">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Data Richiesta</th>
+              <th>Ragione Sociale</th>
+              <th>Contatto / Referente</th>
+              <th>Email & Telefono</th>
+              <th>Settore / Dipendenti</th>
+              <th>Servizi di Interesse</th>
+              <th>Stato</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <tr>
+              <td colspan="7" style="text-align: center; padding: 2rem;">Nessuna nuova richiesta registrata.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Fullscreen Modal Markdown Editor -->
+  <div class="modal-overlay" id="editor-modal">
+    <div class="modal-editor">
+      <div class="editor-header">
+        <h2 id="modal-editor-title">✏️ Modifica Articolo Markdown</h2>
+        <button class="btn btn-outline btn-sm" id="btn-close-modal">✕ Chiudi</button>
+      </div>
+
+      <!-- Metadata Settings Form -->
+      <div class="editor-meta-grid">
+        <div class="form-group">
+          <label>Titolo dell'Articolo *</label>
+          <input type="text" id="edit-title" placeholder="Es: Nuova Sabatini 2026 - Riapertura Sportello">
+        </div>
+        <div class="form-group">
+          <label>Categoria Tematica *</label>
+          <select id="edit-category">
+            <option value="Finanza, Bandi & Fisco">Finanza, Bandi & Fisco</option>
+            <option value="Lavoro, Contratti & Welfare">Lavoro, Contratti & Welfare</option>
+            <option value="Edilizia, Appalti & Territorio (ANIEM)">Edilizia, Appalti & Territorio (ANIEM)</option>
+            <option value="Innovazione, Digitale & Transizione 5.0">Innovazione, Digitale & Transizione 5.0</option>
+            <option value="Istituzioni, Normativa & Comunicati">Istituzioni, Normativa & Comunicati</option>
+            <option value="Europa & Internazionalizzazione">Europa & Internazionalizzazione</option>
+            <option value="Attualità PMI">Attualità PMI</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Autore / Ufficio</label>
+          <input type="text" id="edit-author" value="Redazione Confapi Roma">
+        </div>
+        <div class="form-group">
+          <label>Stato di Pubblicazione</label>
+          <select id="edit-status">
+            <option value="published">Pubblicato</option>
+            <option value="draft">Bozza</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="padding:0 1.5rem 1rem">
+        <label for="edit-summary">Anteprima in homepage</label>
+        <textarea id="edit-summary" rows="3" style="width:100%;padding:.75rem;border:1px solid #cbd5e1;border-radius:6px;font:inherit" placeholder="Breve introduzione visualizzata nelle schede e in primo piano"></textarea>
+      </div>
+      <!-- Markdown Quick Toolbar -->
+      <div class="md-toolbar">
+        <button class="tool-btn" onclick="insertMarkdown('# ', '')">H1</button>
+        <button class="tool-btn" onclick="insertMarkdown('## ', '')">H2</button>
+        <button class="tool-btn" onclick="insertMarkdown('### ', '')">H3</button>
+        <button class="tool-btn" onclick="insertMarkdown('**', '**')"><b>B</b> Grassetto</button>
+        <button class="tool-btn" onclick="insertMarkdown('*', '*')"><i>I</i> Corsivo</button>
+        <button class="tool-btn" onclick="insertMarkdown('> ', '')">❝ Citazione</button>
+        <button class="tool-btn" onclick="insertMarkdown('> [!NOTE]\n> ', '')">📘 Alert Info</button>
+        <button class="tool-btn" onclick="insertMarkdown('> [!IMPORTANT]\n> ', '')">⚠️ Alert Importante</button>
+        <button class="tool-btn" onclick="insertMarkdown('- ', '')">• Lista</button>
+        <button class="tool-btn" onclick="insertMarkdown('1. ', '')">1. Numerata</button>
+        <button class="tool-btn" onclick="insertMarkdown('[Testo link](', ')')">🔗 Link</button>
+        <button class="tool-btn" onclick="insertMarkdown('![Alt img](', ')')">🖼️ Immagine</button>
+        <button class="tool-btn" onclick="insertMarkdown('\n| Voce | Dettaglio |\n|---|---|\n| Dato 1 | Valore 1 |\n', '')">📊 Tabella</button>
+        <button class="tool-btn" onclick="insertMarkdown('\n---\n', '')">── Separatore</button>
+      </div>
+
+      <!-- Dual Pane Live Editor -->
+      <div class="editor-body">
+        <div class="editor-pane">
+          <div class="pane-label">Sorgente Markdown (Modificabile)</div>
+          <textarea class="md-textarea" id="edit-content" placeholder="# Titolo dell'Articolo in Markdown..."></textarea>
+        </div>
+        <div class="editor-pane">
+          <div class="pane-label">Anteprima Live HTML Formattata</div>
+          <div class="preview-pane" id="edit-preview"></div>
+        </div>
+      </div>
+
+      <!-- Footer Actions -->
+      <div class="editor-footer">
+        <div class="editor-stats">
+          <span id="char-count">0 caratteri</span>
+          <span id="word-count">0 parole</span>
+          <span id="read-time-est">~1 min lettura</span>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-outline" style="color: var(--text-main); border-color: var(--border-admin);" id="btn-cancel-edit">Annulla</button>
+          <button class="btn btn-gold" id="btn-save-article">💾 Salva Articolo nel Database</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

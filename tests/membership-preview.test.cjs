@@ -1,0 +1,15 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync(require('node:path').join(__dirname,'../public/js/membership-flow.js'),'utf8');
+const preview=source.slice(source.indexOf('async function pdf('),source.indexOf("$$('[data-preview-pdf]')")).replace("await import('/vendor/pdfjs/pdf.min.mjs')",'pdfjsStub');
+function setup(){
+ const events=[],frame={scrollTop:0,replaceChildren(){events.push('render');}},panel={hidden:false,scrollIntoView(){}},state={value:{fields:{company:'Prima'}},response:null};
+ const context={JSON,Uint8Array,Error,URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},clearTimeout(){},setTimeout(){},events,state,form:{isConnected:true},error:{textContent:''},$:s=>s==='#pdf-frame'?frame:panel,$$:()=>[],data:()=>state.value,markPreview:(message,stale=true)=>events.push({message,stale}),say:message=>events.push({error:message}),schedulePreview:()=>events.push('schedule'),fetch:()=>state.response,document:{createDocumentFragment:()=>({append(){}}),createElement:()=>({setAttribute(){},click(){}})},pdfjsStub:{GlobalWorkerOptions:{},getDocument:()=>({promise:Promise.resolve({numPages:1,getPage:async()=>({getViewport:()=>({width:600,height:800}),render:()=>({promise:Promise.resolve()})}),destroy:async()=>{}})})}};
+ vm.createContext(context);vm.runInContext("let busy=false,refreshTimer=0,refreshPending=false,previewData='',pdfURL='';"+preview+";globalThis.pdf=pdf;globalThis.current=()=>({previewData,pdfURL,busy});",context);return{context,state,events};
+}
+const response=()=>({ok:true,blob:async()=>({arrayBuffer:async()=>new ArrayBuffer(1)})});
+test('una risposta superata non viene mostrata né confermata; la successiva usa i nuovi dati',async()=>{
+ const {context,state,events}=setup();let resolve;state.response=new Promise(r=>resolve=r);const pending=context.pdf(false,false,true);state.value={fields:{company:'Seconda'}};resolve(response());await pending;assert.ok(!events.includes('render'));assert.equal(context.current().previewData,'');assert.ok(events.includes('schedule'));
+ state.response=Promise.resolve(response());await context.pdf(false,false,true);assert.ok(events.includes('render'));assert.equal(JSON.parse(context.current().previewData).fields.company,'Seconda');assert.equal(events.at(-1).stale,false);
+});
+test('un errore di validazione lascia l’anteprima non confermabile',async()=>{const {context,state,events}=setup();state.response=Promise.resolve({ok:false,json:async()=>({error:'Controlla il CAP'})});await context.pdf(false,false,true);assert.equal(context.current().previewData,'');assert.equal(events.at(-1).stale,true);assert.match(context.error.textContent,/CAP/);});
+test('scaricare il PDF non rende aggiornata una vecchia anteprima',async()=>{const {context,state,events}=setup();state.response=Promise.resolve(response());await context.pdf(true);assert.equal(context.current().previewData,'');assert.ok(!events.includes('render'));});

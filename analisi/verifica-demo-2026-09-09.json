@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-09",
+  "sitemapURLs": 139,
+  "sitemapUniqueURLs": 139,
+  "previousInventoryPages": 132,
+  "additionalPDFs": 7,
+  "recentURLsMissingFromSitemap": [
+    865,
+    866
+  ],
+  "demoCuratedArticles": 6,
+  "archiveToReview": 77,
+  "verification": "15 route/asset HTTP checks; draft filtering; disk persistence; publishing; contact validation; CRM request and state change; desktop and mobile visual inspection"
+}

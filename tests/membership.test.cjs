@@ -1,0 +1,25 @@
+const {test,after}=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),os=require('os');
+process.env.V1_DATA_DIR=fs.mkdtempSync(path.join(os.tmpdir(),'confapi-v1-membership-'));
+const {app}=require('../demo-server'),sql=require('../membership/db'),security=require('../membership/security'),sharp=require('sharp'),{PDFDocument}=require('pdf-lib');
+let server;
+after(()=>{server?.close();sql.db.close();});
+test('quattro passaggi, PDF con due firme, ricezione privata e gestione autenticata',async()=>{
+ server=app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));const base='http://127.0.0.1:'+server.address().port;
+ const request=(url,method='GET',body,cookie)=>fetch(base+url,{method,redirect:'manual',headers:{...(body?{'Content-Type':'application/json'}:{}),...(cookie?{Cookie:cookie}:{})},body:body?JSON.stringify(body):undefined});
+ const image=await sharp(Buffer.from('<svg width="600" height="160"><rect width="600" height="160" fill="white"/><path d="M20 110 Q100 5 170 100 T300 60 L440 110" stroke="navy" stroke-width="5" fill="none"/><text x="200" y="150">TEST ONLY</text></svg>')).png().toBuffer();
+ const b={fields:{company:'IMPRESA TEST SRL',legal_city:'Roma',legal_province:'RM',legal_street:'Via Prova',legal_number:'1',legal_zip:'00125',tax_code:'00000000000',vat:'00000000000',email:'test@example.org',representative:'Persona Test',birth_city:'Roma',birth_date:'1980-01-02',residence_city:'Roma',residence_street:'Via Prova',employees:'1',workers:'1',fee:'100',place:'Roma',date:'2026-09-01'},sectors:['industria'],industries:['meccanico'],signature:'data:image/png;base64,'+image.toString('base64'),privacySignature:'data:image/png;base64,'+image.toString('base64'),declarations:true,privacy:true};
+ assert.equal((await request('/api/adesioni','POST',{...b,privacySignature:''})).status,400);
+ assert.equal((await request('/api/adesioni','POST',{...b,fields:{...b.fields,employees:'2'}})).status,400);
+ const preview=await request('/api/adesioni/anteprima','POST',b);assert.equal(preview.status,200);assert.match(preview.headers.get('content-type'),/application\/pdf/);assert.ok((await preview.arrayBuffer()).byteLength>10000);
+ const submitted=await request('/api/adesioni','POST',b);assert.equal(submitted.status,201);assert.ok((await submitted.json()).reference);
+ const item=sql.get('SELECT * FROM memberships');assert.equal(item.company,b.fields.company);assert.equal(item.status,'Ricevuta');assert.ok(!item.fields.includes('data:image'));
+ assert.equal((await request('/admin/adesioni/'+item.id+'/pdf')).status,302);
+ assert.equal((await request('/backend/data/adesioni/memberships/'+item.pdf_filename)).status,404);
+ sql.run('INSERT INTO users VALUES(?,?,?,?,?,?)','test','test@example.org','Redazione Test',await security.passwordHash('test-only-long-password'),'admin',new Date().toISOString());
+ const login=await request('/admin/login','POST',{email:'test@example.org',password:'test-only-long-password'});assert.equal(login.status,302);const cookie=login.headers.get('set-cookie').split(';')[0];
+ const listing=await request('/admin/adesioni','GET',undefined,cookie);assert.match(await listing.text(),/IMPRESA TEST SRL/);
+ const download=await request('/admin/adesioni/'+item.id+'/pdf','GET',undefined,cookie);assert.equal(download.status,200);const bytes=Buffer.from(await download.arrayBuffer());const pdf=await PDFDocument.load(bytes);assert.ok(!pdf.getTitle().includes('Bozza'));assert.equal(pdf.getPageCount(),1);assert.ok(pdf.getPage(0).node.Resources().lookup(require('pdf-lib').PDFName.of('XObject')).keys().length>=2);
+ assert.equal((await request('/admin/adesioni/'+item.id+'/stato','POST',{status:'Completata'},cookie)).status,403);
+ const csrf=sql.get('SELECT csrf FROM sessions').csrf;assert.equal((await request('/admin/adesioni/'+item.id+'/stato','POST',{status:'Completata',_csrf:csrf},cookie)).status,302);assert.equal(sql.get('SELECT status FROM memberships').status,'Completata');
+ const markup=fs.readFileSync(path.join(__dirname,'../public/js/membership-form.js'),'utf8');assert.equal((markup.match(/data-step-panel=/g)||[]).length,4);assert.ok(markup.includes('privacySignature'));
+});

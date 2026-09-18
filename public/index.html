@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONFAPI ROMA — Quotidiano e Portale Istituzionale della Piccola e Media Industria</title>
+  <meta name="description" content="Organo di rappresentanza e notiziario ufficiale di Confapi Roma e Lazio. Contrattazione collettiva PMI, circolari lavoro, finanza agevolata 5.0, formazione continua.">
+  <link rel="icon" type="image/x-icon" href="/assets/logos/favicon.ico">
+  <link rel="stylesheet" href="/css/confapi-editorial.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="/css/presentation-fixes.css">
+<script src="/js/presentation-fixes.js" defer></script>
+</head>
+<body>
+
+  <!-- Tricolore Istituzionale -->
+  <div class="gov-strip"></div>
+
+  <!-- Top Legal Bar -->
+  <aside class="top-bar-legal">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div>
+          <span>Presidio Territoriale di Rappresentanza Datoriale per Roma Capitale e la Regione Lazio</span>
+        </div>
+        <div class="top-bar-right">
+          <span>Codice Fiscale: <code>97063420586</code></span>
+          <span>PEC: <a href="mailto:confapiroma@pec.it" style="color: #E2E8F0;">confapiroma@pec.it</a></span>
+          <a href="/admin" style="color: var(--confapi-amber); font-weight: 700;">🔐 Redazione CMS</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Editorial Masthead (Stile Grande Quotidiano Istituzionale) -->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-main">
+        <div class="masthead-meta-left">
+          <strong>Edizione Roma e Lazio</strong><br>
+          <span id="edition-date"></span><br>
+          <span style="color: var(--confapi-blue); font-weight: 600;">116.000 Imprese Associate in Italia</span>
+        </div>
+
+        <div class="masthead-brand">
+          <a href="/">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Roma Logo" onerror="this.src='/assets/logos/logo-confapi_1000.png'">
+          </a>
+          <span class="masthead-sub-title">Confederazione Piccola e Media Industria Privata</span>
+        </div>
+
+        <div class="masthead-actions-right">
+          <div style="text-align: right; margin-right: 0.5rem;">
+            <div style="font-size: 0.75rem; color: var(--ink-muted);">Centralino Istituzionale</div>
+            <a href="tel:+390669924890" style="font-weight: 800; font-size: 0.95rem; color: var(--confapi-navy);">+39 06 6992 4890</a>
+          </div>
+          <a href="/come-associarsi" class="btn-editorial-gold">Aderisci a Confapi</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav-strip">
+      <div class="container">
+        <ul class="nav-links-row">
+          <li><a href="/" class="active">Prima Pagina</a></li>
+          <li><a href="#notiziario">Circolari & Notiziario</a></li>
+          <li><a href="/chi-siamo">Chi Siamo</a></li>
+          <li><a href="#unioni">Unioni di Categoria</a></li>
+          <li><a href="#sistema-confapi">Enti Bilaterali</a></li>
+          <li><a href="/convenzioni">Convenzioni</a></li>
+          <li><a href="/come-associarsi">Come Associarsi</a></li>
+          <li><a href="#sportelli">Sportelli & Sede</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Live Wire / Notiziario Flash -->
+  <div class="live-wire-bar">
+    <div class="container">
+      <div class="live-wire-inner">
+        <span class="live-tag">Flash Normativa</span>
+        <div class="live-ticker-text">
+          <strong>Transizione 5.0:</strong> Pubblicata la guida operativa per il credito d'imposta macchinari e impianti fotovoltaici. 
+          <span>• [14:20] Regione Lazio: Avviso contributi a fondo perduto per la digitalizzazione delle microimprese.</span>
+          <span>• [10:00] CCNL Unionmeccanica: Indicazioni per la piattaforma welfare EBM 2026.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Editorial Front Page (Asymmetrical 3-Column Layout) -->
+  <main class="editorial-layout">
+    <div class="container">
+      <div class="newspaper-grid">
+        
+        <!-- ================= COLUMN 1: PRIMO PIANO (LEAD STORY) ================= -->
+        <article class="lead-story" id="featured-story" aria-label="Articolo in primo piano"><div class="kicker">In primo piano</div><h1 class="lead-headline">Bando PMI aree cratere sismico Lazio</h1><p>Caricamento dell’articolo…</p></article>
+
+        <!-- ================= COLUMN 2: ULTIME CIRCOLARI & SALA STAMPA ================= -->
+        <section class="feed-column" id="notiziario">
+          <div class="column-header">
+            <h3>Circolari & Sala Stampa</h3>
+            <a href="#notiziario" onclick="showAllArticles(event)" style="font-size: 0.75rem; font-weight: 700; color: var(--confapi-blue);">Altri articoli →</a>
+          </div>
+
+          <div style="margin-bottom: 1rem;">
+            <input type="text" aria-label="Cerca articoli" oninput="filterFeed(this.value)" placeholder="🔍 Cerca tra le circolari (es: CCNL, 5.0, INPS)..." style="width: 100%; padding: 0.5rem 0.75rem; font-size: 0.8125rem; border: 1px solid var(--ink-border-dark); border-radius: 2px; outline: none;">
+          </div>
+
+          <!-- Dynamic Feed Container -->
+          <div id="editorial-feed-container">
+            <div style="padding: 2rem 0; text-align: center; color: var(--ink-muted); font-size: 0.85rem;">
+              Caricamento circolari ufficiali dal server...
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= COLUMN 3: STRUMENTI OPERATIVI & SPORTELLI ================= -->
+        <aside class="sidebar-tools-column">
+          
+          <!-- Bandi in Scadenza Widget -->
+          <div class="widget-box">
+            <div class="widget-title">Bandi Aperti Lazio</div>
+            <ul class="widget-list">
+              <li>
+                <a href="#adesione">
+                  <span>Nuova Sabatini 2026</span>
+                  <span class="tag">Attivo</span>
+                </a>
+              </li>
+              <li>
+                <a href="#adesione">
+                  <span>Fondo Nuove Imprese Lazio</span>
+                  <span class="tag">Aperto</span>
+                </a>
+              </li>
+              <li>
+                <a href="#adesione">
+                  <span>Bando ISI INAIL Sicurezza</span>
+                  <span class="tag">65% Fondo</span>
+                </a>
+              </li>
+              <li>
+                <a href="#adesione">
+                  <span>Conto Formazione FAPI</span>
+                  <span class="tag">Gratuito</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CCNL & Tabelle Retributive Widget -->
+          <div class="widget-box">
+            <div class="widget-title">Contratti CCNL Confapi</div>
+            <ul class="widget-list">
+              <li><a href="#unioni"><span>Meccanica & Meccatronica</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+              <li><a href="#unioni"><span>Edilizia & Manufatti ANIEM</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+              <li><a href="#unioni"><span>Alimentare & Agroindustria</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+              <li><a href="#unioni"><span>Terziario, Servizi & ICT</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+              <li><a href="#unioni"><span>Sanità Privata & RSA</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+              <li><a href="#unioni"><span>Trasporti & Logistica</span> <span style="color: var(--confapi-blue);">→</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Helpdesk Box -->
+          <div class="helpdesk-box" id="sportelli">
+            <h4>Sportello Direzionale</h4>
+            <p>I funzionari confederali sono a disposizione per verifiche contrattuali, vertenze e pratiche associative.</p>
+            <span class="helpdesk-phone">+39 06 6992 4890</span>
+            <p style="font-size: 0.75rem; color: #94A3B8; margin-bottom: 1rem;">Orari: Lunedì – Venerdì, 09:00 – 18:00</p>
+            <a href="mailto:segreteria@confapiroma.it" class="btn-editorial-gold" style="width: 100%; justify-content: center; font-size: 0.75rem;">Richiedi Appuntamento</a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Sezione Unioni di Categoria (Directory Istituzionale) -->
+  <section class="sectors-section" id="unioni">
+    <div class="container">
+      <div class="sectors-header">
+        <div class="kicker">Rappresentanza di Settore</div>
+        <h2>Le Unioni di Categoria Confapi Roma</h2>
+      </div>
+
+      <div class="sectors-table-grid">
+        <div class="sector-item-card">
+          <div>
+            <h4>Unionmeccanica</h4>
+            <p>Rappresenta le imprese della metalmeccanica, meccatronica, carpenteria e impiantistica. Gestione del CCNL Meccanica PMI ed Ente Bilaterale EBM.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>CCNL Unionmeccanica Confapi</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="sector-item-card">
+          <div>
+            <h4>ANIEM Edilizia & Manufatti</h4>
+            <p>Associazione Nazionale Imprese Edili e Manifatturiere. Consulenza gare d'appalto, qualificazione SOA, congruità manodopera e Cassa Edile.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>CCNL Edilizia & Affini ANIEM</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="sector-item-card">
+          <div>
+            <h4>Confapi Sanità & Salute</h4>
+            <p>Cliniche private, laboratori di analisi, case di riposo, RSA e strutture diagnostiche. Rapporti con la Regione Lazio e tariffari sanitari.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>CCNL Sanità Privata & RSA</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="sector-item-card">
+          <div>
+            <h4>Confapi Servizi, ICT & Digitale</h4>
+            <p>Società di consulenza, software house, agenzie digitali e provider di telecomunicazioni. Contrattazione flessibile e smart working.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>CCNL Servizi & Terziario PMI</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="sector-item-card">
+          <div>
+            <h4>Unionalimentari</h4>
+            <p>Tutela dell'agroalimentare di eccellenza del Lazio, certificazioni di qualità DOP/IGP, tracciabilità di filiera e progetti di internazionalizzazione.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>CCNL Industria Alimentare PMI</span>
+            <span>→</span>
+          </div>
+        </div>
+
+        <div class="sector-item-card">
+          <div>
+            <h4>Gruppo Giovani & Confapi Donne</h4>
+            <p>Promozione del ricambio generazionale, startup innovative, parità di genere (PdR 125:2022) e accesso al Fondo Nuove Imprese Lazio.</p>
+          </div>
+          <div class="sector-ccnl-link">
+            <span>Programma Mentorship PMI</span>
+            <span>→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Sistema CONFAPI & Enti Bilaterali Paritetici (12 Loghi Ufficiali Cliccabili) -->
+  <section class="partners-section" style="background: var(--ink-bg-warm); border-top: 1px solid var(--ink-border); border-bottom: 1px solid var(--ink-border);" id="sistema-confapi">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <div class="kicker" style="justify-content: center;">Sistema Bilaterale & Istituti Paritetici</div>
+        <h2 style="font-family: var(--font-headline); font-size: 1.85rem; color: var(--confapi-navy);">Enti Bilaterali, Fondi e Società del Sistema Confapi</h2>
+        <p style="font-size: 0.95rem; color: var(--ink-secondary); max-width: 800px; margin: 0.4rem auto 0;">
+          Gli organismi paritetici nazionali che garantiscono la formazione continua a costo zero, la sanità integrativa, il welfare contrattuale e il credito per le imprese associate. Clicca su ciascun ente per accedere al portale ufficiale:
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;">
+        
+        <!-- Ente 1 -->
+        <a href="http://www.pmiwfm.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/pmi_welfare_manager.png" alt="PMI Welfare Manager" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">PMI Welfare Manager</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Fondo Solidarietà Manager PMI ↗</span>
+        </a>
+
+        <!-- Ente 2 -->
+        <a href="http://www.cespim.com/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/cespim.png" alt="CESPIM" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">CESPIM</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Centro Sviluppo PMI ↗</span>
+        </a>
+
+        <!-- Ente 3 -->
+        <a href="http://www.confapi.org/it/i-servizi/relazioni-industriali-e-sindacali.html" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/confapi_servizi.png" alt="Confapi Servizi" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">CONFAPI SERVIZI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Relazioni Industriali & Sindacali ↗</span>
+        </a>
+
+        <!-- Ente 4 -->
+        <a href="http://www.entebilateralemetalmeccanici.it/index.jsp" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/ebm.png" alt="E.B.M. Ente Bilaterale Metalmeccanici" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">E.B.M.</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Ente Bilaterale Metalmeccanici ↗</span>
+        </a>
+
+        <!-- Ente 5 -->
+        <a href="http://www.enfea.it/index.jsp" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/enfea.png" alt="ENFEA" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">ENFEA</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Ente Bilaterale Nazionale PMI ↗</span>
+        </a>
+
+        <!-- Ente 6 -->
+        <a href="https://www.fondopmi.com/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fapi.png" alt="FAPI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FAPI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Fondo Formazione PMI ↗</span>
+        </a>
+
+        <!-- Ente 7 -->
+        <a href="http://www.fasdapi.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fasdapi.png" alt="FASDAPI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FASDAPI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Fondo Assistenza Sanitaria Dirigenti ↗</span>
+        </a>
+
+        <!-- Ente 8 -->
+        <a href="https://www.fincreditconfapi.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fincredit.png" alt="FINCREDIT CONFAPI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FINCREDIT</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Confidi & Credito Confapi ↗</span>
+        </a>
+
+        <!-- Ente 9 -->
+        <a href="http://www.fondapi.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fondapi.png" alt="FONDAPI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FONDAPI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Fondo Pensione Complementare PMI ↗</span>
+        </a>
+
+        <!-- Ente 10 -->
+        <a href="http://www.fondazioneidi.it/web/guest;jsessionid=E0832D7DA8C123DBFA82D3D943D5450C.default" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fondazione_idi.png" alt="FONDAZIONE IDI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FONDAZIONE IDI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Istituto Dirigenti Italiani ↗</span>
+        </a>
+
+        <!-- Ente 11 -->
+        <a href="http://crm.fondodirigentipmi.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/fondo_dirigenti_pmi.png" alt="FONDO DIRIGENTI PMI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">FONDO DIRIGENTI PMI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Finanziamento Formazione Dirigenti ↗</span>
+        </a>
+
+        <!-- Ente 12 -->
+        <a href="http://www.previndapi.it/" target="_blank" rel="noopener" style="background: white; border: 1px solid var(--ink-border); border-radius: 4px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.03);" onmouseover="this.style.borderColor='var(--confapi-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--ink-border)'; this.style.transform='none'">
+          <img src="/assets/logos/previndapi.png" alt="PREVINDAPI" style="max-height: 52px; max-width: 100%; object-fit: contain; margin-bottom: 0.75rem;">
+          <strong style="font-size: 0.8125rem; color: var(--confapi-navy);">PREVINDAPI</strong>
+          <span style="font-size: 0.7rem; color: var(--ink-muted);">Fondo Pensione Quadri & Dirigenti ↗</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione Convenzioni Quadro -->
+  <section class="partners-section" id="convenzioni">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="kicker">Accordi Nazionali</div>
+          <h3 style="font-family: var(--font-headline); font-size: 1.6rem; color: var(--confapi-navy);">Convenzioni Riservate alle Imprese Associate</h3>
+        </div>
+        <a href="/convenzioni" class="btn-editorial-navy" style="font-size: 0.8125rem;">Consulta Tutte le 7 Convenzioni Dettagliate →</a>
+      </div>
+
+      <div class="partners-row">
+        <a href="/convenzioni#7speaking" class="partner-logo-item">
+          7Speaking
+          <small>Corsi Lingue & E-Learning</small>
+        </a>
+        <a href="/convenzioni#iredeem" class="partner-logo-item">
+          IREDEEM S.p.A.
+          <small>Defibrillatori DAE Philips</small>
+        </a>
+        <a href="/convenzioni#fca" class="partner-logo-item">
+          FCA Stellantis
+          <small>Flotte & Furgoni</small>
+        </a>
+        <a href="/convenzioni#banca-fucino" class="partner-logo-item">
+          Banca del Fucino
+          <small>Linee di Credito</small>
+        </a>
+        <a href="/convenzioni#intesa" class="partner-logo-item">
+          Intesa Sanpaolo
+          <small>Finanza ESG 5.0</small>
+        </a>
+        <a href="/convenzioni#sacid" class="partner-logo-item">
+          SACID
+          <small>Polizze Cantieri & Aziende</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modulo di Adesione Istituzionale -->
+  <section style="padding: 4rem 0; background: var(--ink-bg-warm); border-top: 1px solid var(--ink-border);" id="adesione">
+    <div class="container" style="max-width: 840px;">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <div class="kicker" style="justify-content: center;">Adesione Confederale</div>
+        <h2 style="font-family: var(--font-headline); font-size: 2rem; color: var(--confapi-navy);">Richiesta di Iscrizione e Check-Up Impresa</h2>
+        <p style="color: var(--ink-secondary); font-size: 0.95rem; margin-top: 0.5rem;">
+          Compila i dati aziendali per richiedere l'adesione a Confapi Roma e ricevere la consulenza preventiva gratuita con i nostri funzionari sindacali e legali.
+        </p>
+      </div>
+
+      <form id="editorial-lead-form" style="background: #FFFFFF; padding: 2rem; border: 1px solid var(--ink-border); display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--confapi-navy);" for="el-company">Ragione Sociale Azienda *</label>
+          <input type="text" id="el-company" required placeholder="Es: Rossi Meccanica S.r.l." style="width: 100%; padding: 0.75rem; border: 1px solid var(--ink-border-dark); font-size: 0.9rem;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--confapi-navy);" for="el-name">Referente Aziendale *</label>
+          <input type="text" id="el-name" required placeholder="Es: Dott. Mario Rossi" style="width: 100%; padding: 0.75rem; border: 1px solid var(--ink-border-dark); font-size: 0.9rem;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--confapi-navy);" for="el-email">Email Aziendale / PEC *</label>
+          <input type="email" id="el-email" required placeholder="mario.rossi@azienda.it" style="width: 100%; padding: 0.75rem; border: 1px solid var(--ink-border-dark); font-size: 0.9rem;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--confapi-navy);" for="el-phone">Telefono Diretto *</label>
+          <input type="tel" id="el-phone" required placeholder="+39 06 12345678" style="width: 100%; padding: 0.75rem; border: 1px solid var(--ink-border-dark); font-size: 0.9rem;">
+        </div>
+        <div style="grid-column: span 2;">
+          <label style="display: block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem; color: var(--confapi-navy);" for="el-interest">Area di Interesse Principale</label>
+          <select id="el-interest" style="width: 100%; padding: 0.75rem; border: 1px solid var(--ink-border-dark); font-size: 0.9rem; background: white;">
+            <option value="ccnl">Applicazione Contratti CCNL PMI & Relazioni Sindacali</option>
+            <option value="fondapi">Formazione Finanziata FAPI (0,30% INPS)</option>
+            <option value="5.0">Transizione 5.0 & Finanza Agevolata Regione Lazio</option>
+            <option value="aniem">Edilizia & Appalti Pubblici (ANIEM)</option>
+            <option value="welfare">Welfare Sanitario Integrativo ENFEA</option>
+          </select>
+        </div>
+        <div style="grid-column: span 2; margin-top: 0.5rem;">
+          <button type="submit" class="btn-editorial-gold" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;" id="btn-submit-lead">
+            Invia Richiesta di Adesione Ufficiale
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modale di Lettura Articolo (Full Markdown) -->
+  <div class="modal-overlay" id="article-reader-modal">
+    <div class="modal-sheet">
+      <div class="modal-sheet-header">
+        <div>
+          <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: var(--confapi-amber);" id="rm-category">Categoria</div>
+          <div style="font-size: 0.75rem; color: #CBD5E1; margin-top: 2px;" id="rm-meta">Data e Autore</div>
+        </div>
+        <button onclick="dismissArticleModal()" style="background: none; border: none; color: white; font-size: 1.25rem; cursor: pointer; padding: 0.25rem 0.5rem;">✕</button>
+      </div>
+      <div class="modal-sheet-body" id="rm-body">
+        <!-- Rendered Markdown will appear here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Istituzionale -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Logo" style="height: 38px; background: white; padding: 3px 6px; border-radius: 2px;" onerror="this.style.display='none'">
+            <strong style="color: #FFFFFF; font-size: 1rem;">CONFAPI ROMA</strong>
+          </div>
+          <p style="line-height: 1.6; margin-bottom: 1rem;">
+            Confederazione Italiana della Piccola e Media Industria Privata.<br>
+            Associazione Territoriale di Roma e del Lazio.<br>
+            Tutela dell'autonomia, della rappresentanza e della competitività d'impresa dal 1947.
+          </p>
+          <div style="color: var(--confapi-amber); font-weight: 700;">C.F. / P.IVA: 97063420586</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Unioni di Categoria</h5>
+          <ul>
+            <li><a href="#unioni">Unionmeccanica</a></li>
+            <li><a href="#unioni">ANIEM Edilizia</a></li>
+            <li><a href="#unioni">Confapi Sanità</a></li>
+            <li><a href="#unioni">Confapi Servizi ICT</a></li>
+            <li><a href="#unioni">Unionalimentari</a></li>
+            <li><a href="#unioni">Giovani & Donne</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Servizi & Contratti</h5>
+          <ul>
+            <li><a href="#unioni">Contrattazione CCNL</a></li>
+            <li><a href="#notiziario">Finanza 5.0 & Bandi</a></li>
+            <li><a href="#sistema-confapi">Formazione FAPI</a></li>
+            <li><a href="#unioni">Welfare ENFEA Salute</a></li>
+            <li><a href="#convenzioni">Convenzioni Nazionali</a></li>
+            <li><a href="/admin">Portale CMS Redazione</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Presidio Sede</h5>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Sede di Roma: Via del Plebiscito / Presidio Istituzionale</p>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Centralino: <strong>+39 06 6992 4890</strong></p>
+          <p style="color: #CBD5E1; margin-bottom: 1rem;">PEC: <code>confapiroma@pec.it</code></p>
+          <a href="#adesione" class="btn-editorial-gold" style="font-size: 0.75rem; padding: 0.5rem 0.85rem;">Richiedi Iscrizione</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CONFAPI ROMA E LAZIO — Tutti i diritti riservati.</span>
+        <span>Aderente alla Confederazione Nazionale CONFAPI (Confapi.org)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Funzionalità Frontend & Integrazione API Node.js -->
+  <script>
+    let globalArticles = [];
+    let feedLimit = 5;
+    let feedOffset = 0;
+    let feedQuery = "";
+    function showAllArticles(event) { event.preventDefault(); const matches = getFeedMatches(); feedOffset = feedOffset + 5 >= matches.length ? 0 : feedOffset + 5; renderFeed(matches); document.getElementById("notiziario").scrollIntoView({block:"start"}); }
+    function getFeedMatches() { const q = feedQuery.toLowerCase().trim(); return globalArticles.filter(a => [a.title,a.summary,a.category,a.content].some(v => String(v || "").toLowerCase().includes(q))); }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadFeed();
+    });
+
+    async function loadFeed() {
+      try {
+        const res = await fetch('/api/articles?status=published');
+        const json = await res.json();
+        if (json.success) {
+          globalArticles = json.data;
+          renderFeed(globalArticles);
+          renderFeaturedArticle();
+        }
+      } catch (e) {
+        document.getElementById('editorial-feed-container').textContent = 'Notizie non disponibili. Ricarica la pagina per riprovare.';
+      }
+    }
+
+    function renderFeed(articles) {
+      const container = document.getElementById('editorial-feed-container');
+      if (!articles || articles.length === 0) {
+        container.innerHTML = `<div style="padding: 2rem 0; color: var(--ink-muted); font-size: 0.85rem;">Nessuna circolare trovata.</div>`;
+        return;
+      }
+
+      container.innerHTML = articles.slice(feedOffset, feedOffset + feedLimit).map((art, idx) => {
+        let cleanSumm = (art.summary || art.content || '')
+          .replace(/#+.*?\n/g, '')
+          .replace(/>.*?\n/g, '')
+          .replace(/\[!.*?\]/g, '')
+          .replace(/[*_`#]/g, '')
+          .trim();
+        if (cleanSumm.length > 130) cleanSumm = cleanSumm.substring(0, 130) + '...';
+
+        return `
+          <div class="feed-item">
+            <div class="feed-time">${escapeHtml(art.category || "Archivio")} • ${escapeHtml(art.publishDate || 'Recente')}</div>
+            <h4><a href="/articolo/${art.id}" style="color: inherit;">${escapeHtml(art.title)}</a></h4>
+            <p>${escapeHtml(cleanSumm)}</p>
+            <div style="margin-top: 0.4rem; display: flex; gap: 0.75rem; font-size: 0.75rem; font-weight: 700;">
+              <a href="/articolo/${art.id}" style="color: var(--confapi-blue);">Leggi Pagina Circolare →</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.filterFeed = function(query) {
+      feedQuery = query || ""; feedOffset = 0;
+      if (!query || !query.trim()) {
+        renderFeed(globalArticles);
+        return;
+      }
+      const q = query.toLowerCase().trim();
+      const filtered = globalArticles.filter(a => 
+        (a.title && a.title.toLowerCase().includes(q)) || 
+        (a.summary && a.summary.toLowerCase().includes(q)) ||
+        (a.category && a.category.toLowerCase().includes(q)) ||
+        (a.content && a.content.toLowerCase().includes(q))
+      );
+      renderFeed(filtered);
+    };
+
+    window.openReaderModal = function(id) {
+      const art = globalArticles.find(a => a.id === id);
+      if (!art) return;
+
+      document.getElementById('rm-category').innerText = art.category;
+      document.getElementById('rm-meta').innerText = `Data: ${art.publishDate || 'Recente'} • A cura di: ${art.author || 'Confapi Roma'} • Lettura: ${art.readTime || '3 min'}`;
+
+      let parsedHtml = art.content || '';
+      if (typeof marked !== 'undefined') {
+        parsedHtml = marked.parse(parsedHtml);
+        parsedHtml = parsedHtml.replace(/<blockquote>\s*<p>\[!NOTE\]/g, '<blockquote><p><strong>📘 NOTA OPERATIVA:</strong>');
+        parsedHtml = parsedHtml.replace(/<blockquote>\s*<p>\[!IMPORTANT\]/g, '<blockquote style="border-left-color: var(--confapi-amber);"><p><strong>⚠️ AVVISO IMPORTANTE:</strong>');
+      }
+      document.getElementById('rm-body').innerHTML = parsedHtml;
+      document.getElementById('article-reader-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.openLeadModal = function() {
+      if (globalArticles.length > 0) {
+        openReaderModal(globalArticles[0].id);
+      }
+    };
+
+    window.dismissArticleModal = function() {
+      document.getElementById('article-reader-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Lead Form
+    document.getElementById('editorial-lead-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit-lead');
+      btn.disabled = true;
+      btn.innerText = 'Invio in corso...';
+
+      const payload = {
+        companyName: document.getElementById('el-company').value,
+        contactPerson: document.getElementById('el-name').value,
+        email: document.getElementById('el-email').value,
+        phone: document.getElementById('el-phone').value,
+        sector: 'Da definire',
+        employeesCount: 'Non indicato',
+        servicesOfInterest: [document.getElementById('el-interest').selectedOptions[0].textContent]
+      };
+
+      try {
+        const res = await fetch('/api/membership', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if (json.success) {
+          showAcquisitionSuccess(json.data);
+          document.getElementById('editorial-lead-form').reset();
+        } else {
+          alert('Errore: ' + json.message);
+        }
+      } catch (err) {
+        alert('Errore di connessione.');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Invia Richiesta di Adesione Ufficiale';
+      }
+    });
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>

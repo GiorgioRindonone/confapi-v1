@@ -1,0 +1,36 @@
+const {test,after}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os');
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'confapi-v1-admin-'));
+process.env.V1_DATA_DIR=dir;
+fs.writeFileSync(path.join(dir,'editorial-demo.json'),JSON.stringify([{id:'legacy',title:'Titolo originale V1',content:'Testo originale da preservare.',summary:'Sommario originale',category:'Lavoro e welfare',type:'Circolare',status:'published',date:'2026-01-01',image:'/assets/editorial/lavoro.jpg',extra:'conservato'}]));
+fs.writeFileSync(path.join(dir,'editorial-requests.json'),JSON.stringify([{id:'lead-old',name:'Nome test',company:'Impresa test',email:'qa@example.org',interest:'Credito',message:'Richiesta precedente',status:'Nuova',date:'2026-01-01T12:00:00Z'}]));
+const {app}=require('../demo-server'),sql=require('../cms/db'),security=require('../cms/security');
+let server;
+after(()=>{server?.close();sql.db.close();require('../membership/db').db.close();});
+test('porting admin: migrazione fedele, protezioni, editor, media, servizi e richieste',async()=>{
+ server=app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));const base='http://127.0.0.1:'+server.address().port;
+ let cookie='',csrf='';
+ const request=(url,method='GET',body,auth=true,token=true)=>fetch(base+url,{method,redirect:'manual',headers:{...(auth&&cookie?{Cookie:cookie}:{}),...(token&&csrf?{'X-CSRF-Token':csrf}:{}),...(body&&! (body instanceof FormData)?{'Content-Type':'application/json'}:{})},body:body instanceof FormData?body:body?JSON.stringify(body):undefined});
+ require('../cms/migrate').migrate();assert.equal(sql.get('SELECT COUNT(*) n FROM articles').n,1);
+ const legacy=(await(await request('/api/demo/articles')).json())[0];assert.equal(legacy.id,'legacy');assert.equal(legacy.extra,'conservato');assert.equal(legacy.type,'Circolare');assert.equal(sql.get('SELECT COUNT(*) n FROM leads').n,1);
+ for(const endpoint of ['/api/demo/articles?studio=1','/api/demo/requests','/api/admin/media'])assert.equal((await request(endpoint)).status,401,endpoint);
+ assert.equal((await request('/api/demo/articles','POST',{title:'Forbidden'})).status,401);
+ assert.equal((await request('/admin')).headers.get('location'),'/admin/login');assert.equal((await request('/studio')).headers.get('location'),'/admin');
+ await sql.run('INSERT INTO users VALUES(?,?,?,?,?,?)','qa','qa@example.org','Redazione QA',await security.passwordHash('Admin-test-password-only'),'admin',new Date().toISOString());
+ const login=await request('/admin/login','POST',{email:'qa@example.org',password:'Admin-test-password-only'});assert.equal(login.status,302);cookie=login.headers.get('set-cookie').split(';')[0];csrf=sql.get('SELECT csrf FROM sessions').csrf;
+ for(const url of ['/admin','/admin/articoli','/admin/articoli/nuovo','/admin/immagini','/admin/servizi','/admin/richieste','/admin/adesioni','/admin/account']){const r=await request(url);assert.equal(r.status,200,url);assert.match(await r.text(),/Gestione del sito/);}
+ let b={title:'Articolo QA integrato',summary:'Un sommario',html:'<h2>Titolo</h2><p>Testo <strong>formattato</strong> per il servizio.</p><script>alert(1)</script>',channel:'servizi',services:['lavoro'],status:'draft',image:'',featured:false};
+ assert.equal((await request('/api/admin/articles','POST',b,true,false)).status,403);
+ let r=await request('/api/admin/articles','POST',b);assert.equal(r.status,201);let a=await r.json();assert(!a.html.includes('<script'));assert(!(await(await request('/api/demo/articles')).json()).find(x=>x.id===a.id));
+ r=await request('/api/admin/articles/'+a.id,'PUT',{...b,status:'published',version:a.version});assert.equal(r.status,200);a=await r.json();let pub=(await(await request('/api/demo/articles')).json()).find(x=>x.id===a.id);assert.match(pub.richHTML,/<strong>formattato/);assert.equal(pub.services[0].slug,'lavoro');
+ assert.equal((await request('/api/admin/articles/'+a.id,'PUT',{...b,version:1})).status,409);
+ r=await request('/api/admin/preview','POST',b);assert.equal(r.status,200);assert.match(await r.text(),/magazine.css/);
+ const revisions=await(await request('/api/admin/articles/'+a.id+'/revisions')).json();assert.equal(revisions.length,1);
+ r=await request('/api/admin/articles/'+a.id+'/restore/'+revisions[0].id,'POST',{});assert.equal(r.status,200);assert.equal((await r.json()).status,'draft');
+ assert.equal((await request('/api/admin/services/lavoro','PATCH',{name:'Lavoro aggiornato',summary:'Nuova descrizione',active:true})).status,200);assert.equal((await(await request('/api/demo/services')).json()).find(s=>s.id==='lavoro').name,'Lavoro aggiornato');
+ assert.equal((await request('/api/demo/requests','POST',{name:'Nuovo nome',company:'Impresa QA',email:'new@example.org',message:'Informazioni',interest:'ANIEM',consent:true},false)).status,201);
+ const lead=sql.get("SELECT * FROM leads WHERE email='new@example.org'");assert.equal(lead.association,'aniem');assert.equal((await request('/api/admin/leads/'+lead.id,'PATCH',{status:'Gestita',notes:'Nota interna QA'})).status,200);
+ const image=await require('sharp')({create:{width:32,height:24,channels:3,background:'#102d4f'}}).png().toBuffer();const form=new FormData();form.set('image',new Blob([image],{type:'image/png'}),'qa.png');form.set('alt','Immagine di prova');r=await request('/api/admin/media','POST',form);assert.equal(r.status,201);const media=await r.json();assert.equal(media.width,32);assert.match(media.url,/\.webp$/);assert.equal((await request(media.url)).status,200);assert.equal((await request('/api/admin/media/'+media.id,'PATCH',{alt:'Nuova descrizione QA'})).status,200);
+ sql.run('INSERT INTO users VALUES(?,?,?,?,?,?)','editor','editor@example.org','Editor QA',await security.passwordHash('Editor-test-password-only'),'editor',new Date().toISOString());
+ const editorLogin=await request('/admin/login','POST',{email:'editor@example.org',password:'Editor-test-password-only'});cookie=editorLogin.headers.get('set-cookie').split(';')[0];csrf=sql.get("SELECT csrf FROM sessions WHERE user_id='editor'").csrf;
+ assert.equal((await request('/api/admin/services','POST',{name:'Servizio vietato',summary:''})).status,403);
+});

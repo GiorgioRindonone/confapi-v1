@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Come Associarsi — CONFAPI ROMA & LAZIO</title>
+  <meta name="description" content="Adesione ufficiale a Confapi Roma: compila la scheda associativa online, scarica il PDF o calcola il risparmio per la tua impresa.">
+  <link rel="icon" type="image/x-icon" href="/assets/logos/favicon.ico">
+  <link rel="stylesheet" href="/css/confapi-editorial.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&display=swap" rel="stylesheet">
+  <style>
+    .associarsi-layout {
+      padding: 3rem 0 5rem;
+      background: #FFFFFF;
+    }
+    .associarsi-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1.2fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .quote-banner {
+      background: var(--ink-bg-warm);
+      border-left: 4px solid var(--confapi-amber);
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0 2.5rem;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--confapi-navy);
+      line-height: 1.7;
+    }
+    .quote-banner strong {
+      font-style: normal;
+      color: var(--confapi-blue);
+    }
+    .pdf-download-strip {
+      background: #FFFFFF;
+      border: 1px solid var(--ink-border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .online-form-container {
+      background: #FFFFFF;
+      border: 1px solid var(--ink-border);
+      padding: 2.25rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .form-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--confapi-navy);
+    }
+    .form-field input, .form-field select {
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--ink-border-dark);
+      border-radius: 2px;
+      font-size: 0.875rem;
+      outline: none;
+    }
+    .form-field input:focus, .form-field select:focus {
+      border-color: var(--confapi-blue);
+    }
+    /* Minimal Calculator Widget */
+    .mini-calc-widget {
+      background: var(--ink-bg-subtle);
+      border: 1px solid var(--ink-border);
+      padding: 1.75rem;
+      border-radius: 4px;
+    }
+    .calc-step-pill {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .calc-pill-opt {
+      flex: 1;
+      padding: 0.6rem;
+      border: 1px solid var(--ink-border-dark);
+      background: #FFFFFF;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.15s;
+    }
+    .calc-pill-opt.active {
+      background: var(--confapi-navy);
+      color: #FFFFFF;
+      border-color: var(--confapi-navy);
+    }
+    .calc-result-box {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      margin: 1.25rem 0;
+      border-radius: 4px;
+    }
+    .calc-number {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--confapi-emerald);
+      line-height: 1.1;
+      margin: 0.25rem 0;
+    }
+    @media (max-width: 900px) {
+      .associarsi-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="/css/presentation-fixes.css">
+<script src="/js/presentation-fixes.js" defer></script>
+</head>
+<body>
+
+  <!-- Tricolore Istituzionale -->
+  <div class="gov-strip"></div>
+
+  <!-- Top Legal Bar -->
+  <aside class="top-bar-legal">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div>
+          <span>Presidio Territoriale di Rappresentanza Datoriale per Roma Capitale e la Regione Lazio</span>
+        </div>
+        <div class="top-bar-right">
+          <span>PEC: <a href="mailto:confapiroma@pec.it" style="color: #E2E8F0;">confapiroma@pec.it</a></span>
+          <a href="/admin" style="color: var(--confapi-amber); font-weight: 700;">🔐 Redazione CMS</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-main">
+        <div class="masthead-meta-left">
+          <a href="/" style="font-weight: 700; color: var(--confapi-blue);">← Prima Pagina</a><br>
+          <span style="font-size: 0.8rem; color: var(--ink-muted);">Modalità di Iscrizione e Scheda Associativa</span>
+        </div>
+
+        <div class="masthead-brand">
+          <a href="/">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Roma Logo" onerror="this.src='/assets/logos/logo-confapi_1000.png'">
+          </a>
+          <span class="masthead-sub-title">Confederazione Piccola e Media Industria Privata</span>
+        </div>
+
+        <div class="masthead-actions-right">
+          <a href="tel:3337774975" class="btn-editorial-gold">📞 333 7774975</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav-strip">
+      <div class="container">
+        <ul class="nav-links-row">
+          <li><a href="/">Prima Pagina</a></li>
+          <li><a href="/#notiziario">Circolari & Notiziario</a></li>
+          <li><a href="/chi-siamo">Chi Siamo</a></li>
+          <li><a href="/#unioni">Unioni di Categoria</a></li>
+          <li><a href="/convenzioni">Convenzioni</a></li>
+          <li><a href="/come-associarsi" class="active">Come Associarsi</a></li>
+          <li><a href="/#sportelli">Sportelli & Sede</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Content -->
+  <main class="associarsi-layout">
+    <div class="container">
+      
+      <div class="page-header-block" style="border-bottom: 2px solid var(--confapi-navy); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+        <div class="kicker">Adesione Imprese</div>
+        <h1 style="font-family: var(--font-headline); font-size: 2.75rem; color: var(--confapi-navy); line-height: 1.15; margin-bottom: 0.5rem;">
+          Come Associarsi a Confapi Roma
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--ink-secondary);">
+          Procedura semplificata per accedere a tutti i servizi, alla contrattazione CCNL e ai fondi bilaterali paritetici.
+        </p>
+      </div>
+
+      <!-- Official Text Banner -->
+      <div class="quote-banner">
+        “La semplicità con cui offriamo assistenza è il motivo principale per il quale ogni azienda dovrebbe associarsi. <strong>‘Uniti siamo più forti’</strong>.<br>
+        Per associarsi e usufruire di tutti i servizi è sufficiente compilare la <strong>Scheda Associativa</strong> o rivolgersi direttamente all'Associazione al numero <strong>333 7774975</strong>.”
+      </div>
+
+      <!-- PDF Download Action Strip -->
+      <div class="pdf-download-strip">
+        <div>
+          <strong style="color: var(--confapi-navy); font-size: 1rem; display: block;">Modulo Ufficiale: Scheda di Adesione CONFAPI ROMA</strong>
+          <span style="font-size: 0.8125rem; color: var(--ink-muted);">Scarica la scheda cartacea ufficiale da compilare, firmare e trasmettere via email</span>
+        </div>
+        <a href="/assets/docs/Scheda-adesione-CONFAPI-ROMA.pdf" target="_blank" class="btn-editorial-navy" style="font-size: 0.8125rem; padding: 0.6rem 1.25rem;">
+          Scarica Scheda PDF ↓
+        </a>
+      </div>
+
+      <div class="associarsi-grid">
+        
+        <!-- Left: Online Interactive Membership Form -->
+        <div class="online-form-container">
+          <div class="kicker">Modulo Telematico</div>
+          <h2 style="font-family: var(--font-headline); font-size: 1.6rem; color: var(--confapi-navy); margin-bottom: 0.5rem;">
+            Compila la Scheda Associativa Online
+          </h2>
+          <p style="font-size: 0.875rem; color: var(--ink-secondary); margin-bottom: 1.5rem;">
+            Inserisci i dati anagrafici della tua impresa. La Segreteria Generale provvederà a predisporre l'iscrizione e a contattarti per la finalizzazione.
+          </p>
+
+          <form id="full-membership-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fm-company">Ragione Sociale Impresa *</label>
+                <input type="text" id="fm-company" required placeholder="Es: Nuova Meccanica S.r.l.">
+              </div>
+              <div class="form-field">
+                <label for="fm-piva">Partita IVA / Codice Fiscale *</label>
+                <input type="text" id="fm-piva" required placeholder="Es: 01234567890">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fm-address">Indirizzo Sede Legale *</label>
+                <input type="text" id="fm-address" required placeholder="Via / Piazza, Numero Civico">
+              </div>
+              <div class="form-field">
+                <label for="fm-city">Comune e CAP (Roma / Lazio) *</label>
+                <input type="text" id="fm-city" required placeholder="Es: Roma (00187)">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fm-rep">Legale Rappresentante / Titolare *</label>
+                <input type="text" id="fm-rep" required placeholder="Nome e Cognome">
+              </div>
+              <div class="form-field">
+                <label for="fm-phone">Telefono Diretto / Cellulare *</label>
+                <input type="tel" id="fm-phone" required placeholder="Es: 333 1234567">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fm-email">Email Aziendale *</label>
+                <input type="email" id="fm-email" required placeholder="amministrazione@azienda.it">
+              </div>
+              <div class="form-field">
+                <label for="fm-pec">PEC Istituzionale *</label>
+                <input type="email" id="fm-pec" required placeholder="azienda@pec.it">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fm-employees">Numero Dipendenti</label>
+                <select id="fm-employees">
+                  <option value="1-5">1 - 5 Dipendenti (Micro Impresa)</option>
+                  <option value="6-15">6 - 15 Dipendenti (Piccola Impresa)</option>
+                  <option value="16-50">16 - 50 Dipendenti (Media Impresa)</option>
+                  <option value="50+">Oltre 50 Dipendenti (Grande Impresa / PMI+)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="fm-sector">Settore di Attività / CCNL</label>
+                <select id="fm-sector">
+                  <option value="Metalmeccanica & Impianti">Metalmeccanica & Impianti (Unionmeccanica)</option>
+                  <option value="Edilizia & Manufatti">Edilizia & Affini (ANIEM)</option>
+                  <option value="Servizi & Terziario">Servizi, ICT & Consulenza</option>
+                  <option value="Sanità Privata">Sanità Privata & RSA</option>
+                  <option value="Alimentare">Industria Agroalimentare</option>
+                  <option value="Altro">Altro Comparto PMI</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" class="btn-editorial-gold" style="width: 100%; padding: 0.9rem; font-size: 0.95rem;" id="btn-submit-membership">
+                Invia Scheda di Adesione Online
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Minimal & Non-Intrusive Savings Calculator -->
+        <aside style="display: flex; flex-direction: column; gap: 2rem;">
+          
+          <div class="mini-calc-widget">
+            <div class="kicker">Il profilo della tua impresa</div>
+            <h3 style="font-family: var(--font-headline); font-size: 1.3rem; color: var(--confapi-navy); margin-bottom: 0.4rem;">
+              Da dove iniziamo?
+            </h3>
+            <p style="font-size: 0.8125rem; color: var(--ink-secondary);">
+              Seleziona il numero di dipendenti per precompilare la richiesta. Servizi, quote e condizioni saranno definiti con la segreteria.
+            </p>
+
+            <div class="calc-step-pill">
+              <button type="button" class="calc-pill-opt active" onclick="setCalcTier(this, 3200, '1-5')">1-5 dip.</button>
+              <button type="button" class="calc-pill-opt" onclick="setCalcTier(this, 6800, '6-15')">6-15 dip.</button>
+              <button type="button" class="calc-pill-opt" onclick="setCalcTier(this, 14500, '16-50')">16-50 dip.</button>
+              <button type="button" class="calc-pill-opt" onclick="setCalcTier(this, 24000, '50+')">50+ dip.</button>
+            </div>
+
+            <div class="calc-result-box">
+              <div style="font-size: 0.75rem; font-weight: 700; color: var(--confapi-emerald); text-transform: uppercase;">Dimensione selezionata</div>
+              <div class="calc-number" id="calc-display-savings">1–5 dipendenti</div>
+              <span style="font-size: 0.75rem; color: var(--ink-secondary);">Il valore dei servizi dipende dalle esigenze della tua impresa.</span>
+            </div>
+
+            <div style="font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5;">
+              Contatta direttamente la nostra Segreteria al <a href="tel:3337774975" style="font-weight: 700; color: var(--confapi-blue);">333 7774975</a> per una consulenza senza impegno.
+            </div>
+          </div>
+
+          <!-- Direct Contacts -->
+          <div class="assistance-card">
+            <h4>Assistenza Diretta Iscrizioni</h4>
+            <p>I nostri incaricati possono raggiungerti anche presso la tua sede aziendale per illustrarti tutti i vantaggi e la convenienza dei CCNL Confapi.</p>
+            <div style="font-size: 0.85rem; color: #CBD5E1; margin-bottom: 0.5rem;">
+              📞 Linea Diretta: <strong>333 7774975</strong><br>
+              ☎️ Centralino: <strong>+39 06 6992 4890</strong><br>
+              📧 Email: <strong>segreteria@confapiroma.it</strong>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Istituzionale -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Logo" style="height: 38px; background: white; padding: 3px 6px; border-radius: 2px;" onerror="this.style.display='none'">
+            <strong style="color: #FFFFFF; font-size: 1rem;">CONFAPI ROMA</strong>
+          </div>
+          <p style="line-height: 1.6; margin-bottom: 1rem;">
+            Confederazione Italiana della Piccola e Media Industria Privata.<br>
+            Associazione Territoriale di Roma e del Lazio.<br>
+            Tutela dell'autonomia, della rappresentanza e della competitività d'impresa dal 1947.
+          </p>
+          <div style="color: var(--confapi-amber); font-weight: 700;">C.F. / P.IVA: 97063420586</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Unioni di Categoria</h5>
+          <ul>
+            <li><a href="/#unioni">Unionmeccanica</a></li>
+            <li><a href="/#unioni">ANIEM Edilizia</a></li>
+            <li><a href="/#unioni">Confapi Sanità</a></li>
+            <li><a href="/#unioni">Confapi Servizi ICT</a></li>
+            <li><a href="/#unioni">Unionalimentari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Servizi & Contratti</h5>
+          <ul>
+            <li><a href="/#unioni">Contrattazione CCNL</a></li>
+            <li><a href="/#notiziario">Finanza 5.0 & Bandi</a></li>
+            <li><a href="/#sistema-confapi">Formazione FAPI</a></li>
+            <li><a href="/convenzioni">Convenzioni Nazionali</a></li>
+            <li><a href="/come-associarsi">Come Associarsi</a></li>
+            <li><a href="/admin">Portale CMS Redazione</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Presidio Sede</h5>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Sede di Roma: Presidio Istituzionale</p>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Telefono Diretto: <strong>333 7774975</strong></p>
+          <p style="color: #CBD5E1; margin-bottom: 1rem;">PEC: <code>confapiroma@pec.it</code></p>
+          <a href="/come-associarsi" class="btn-editorial-gold" style="font-size: 0.75rem; padding: 0.5rem 0.85rem;">Richiedi Iscrizione</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CONFAPI ROMA E LAZIO — Tutti i diritti riservati.</span>
+        <span>Aderente alla Confederazione Nazionale CONFAPI (Confapi.org)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setCalcTier(el, amount, tier) {
+      document.querySelectorAll('.calc-pill-opt').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('calc-display-savings').innerText = ` ${tier} dipendenti`;
+      document.getElementById('fm-employees').value = tier;
+    }
+
+    document.getElementById('full-membership-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit-membership');
+      btn.disabled = true;
+      btn.innerText = 'Invio in corso...';
+
+      const payload = {
+        companyName: document.getElementById('fm-company').value,
+        vatNumber: document.getElementById('fm-piva').value,
+        address: `${document.getElementById('fm-address').value}, ${document.getElementById('fm-city').value}`,
+        contactPerson: document.getElementById('fm-rep').value,
+        phone: document.getElementById('fm-phone').value,
+        email: document.getElementById('fm-email').value,
+        pec: document.getElementById('fm-pec').value,
+        employeesCount: document.getElementById('fm-employees').value,
+        sector: document.getElementById('fm-sector').value,
+        servicesOfInterest: ['Iscrizione Confederale', 'Contratti CCNL', 'FONDAPI', 'Welfare ENFEA']
+      };
+
+      try {
+        const res = await fetch('/api/membership', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if (json.success) {
+          alert('Scheda salvata in questa anteprima locale. Nessuna email è stata inviata.');
+          document.getElementById('full-membership-form').reset();
+        } else {
+          alert('Errore durante l\'invio: ' + json.message);
+        }
+      } catch (err) {
+        alert('Errore di connessione con il server.');
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Invia Scheda di Adesione Online';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+node_modules/
+.next/
+tmp/
+.env*
+!.env.example
+
+# Dati generati in locale o in produzione: non pubblicarli nella repository.
+# Il contenuto editoriale iniziale in backend/data/articles.json resta versionato.
+backend/data/adesioni/
+backend/data/editorial-requests.json
+backend/data/membership_leads.json
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Materiale temporaneo di ricerca e output locali.
+.firecrawl/

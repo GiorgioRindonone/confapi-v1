@@ -1,0 +1,42 @@
+{
+  "name": "confapi-sito-v1-next",
+  "version": "2.0.0",
+  "description": "Portale Corporate Enterprise e CMS Blog in Node.js per Confapi Roma e Lazio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node scripts/next-run.cjs start",
+    "dev": "node scripts/next-run.cjs dev",
+    "build": "node scripts/next-run.cjs build",
+    "start:hostinger": "next start",
+    "test:porting": "node --test tests/next-porting.test.cjs",
+    "postinstall": "node scripts/vendor-membership.cjs && node scripts/vendor-admin.cjs",
+    "test:membership": "node --test tests/membership.test.cjs tests/membership-preview.test.cjs",
+    "test:admin": "node --test tests/admin.test.cjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.1.0",
+    "multer": "^2.0.2",
+    "next": "16.3.5",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^5.4.149",
+    "quill": "^2.0.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sanitize-html": "^2.17.0",
+    "sharp": "^0.35.4",
+    "zod": "^4.1.5"
+  },
+  "keywords": [
+    "confapi",
+    "roma",
+    "pmi",
+    "cms",
+    "corporate",
+    "markdown"
+  ],
+  "author": "Confapi Digital & Web Agency",
+  "license": "ISC",
+  "private": true
+}

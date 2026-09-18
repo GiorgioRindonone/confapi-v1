@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circolare Ufficiale — CONFAPI ROMA</title>
+  <meta name="description" content="Circolare e notiziario ufficiale a cura di Confapi Roma e Lazio per le Piccole e Medie Imprese.">
+  <link rel="icon" type="image/x-icon" href="/assets/logos/favicon.ico">
+  <link rel="stylesheet" href="/css/confapi-editorial.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    .article-page-layout {
+      padding: 2.5rem 0 5rem;
+      background: #FFFFFF;
+    }
+    .article-container-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    .breadcrumb-nav {
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .breadcrumb-nav a {
+      color: var(--confapi-blue);
+      font-weight: 600;
+    }
+    .breadcrumb-nav a:hover {
+      text-decoration: underline;
+    }
+    .single-article-header {
+      border-bottom: 1px solid var(--ink-border);
+      padding-bottom: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .single-kicker {
+      display: inline-block;
+      background: var(--confapi-navy);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .single-title {
+      font-family: var(--font-headline);
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--confapi-navy);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .single-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8125rem;
+      color: var(--ink-muted);
+      font-family: var(--font-meta);
+    }
+    .article-action-tools {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .btn-tool {
+      background: var(--ink-bg-warm);
+      border: 1px solid var(--ink-border);
+      padding: 0.35rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      cursor: pointer;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn-tool:hover {
+      background: var(--confapi-blue);
+      color: #FFFFFF;
+      border-color: var(--confapi-blue);
+    }
+    .single-content-body {
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #2D3748;
+    }
+    .single-content-body h1 {
+      display: none; /* Already in header */
+    }
+    .single-content-body h2 {
+      font-family: var(--font-headline);
+      font-size: 1.65rem;
+      color: var(--confapi-navy);
+      margin: 2.25rem 0 1rem;
+      border-bottom: 2px solid var(--confapi-amber);
+      padding-bottom: 0.35rem;
+    }
+    .single-content-body h3 {
+      font-size: 1.25rem;
+      color: var(--confapi-blue);
+      margin: 1.75rem 0 0.75rem;
+    }
+    .single-content-body p {
+      margin-bottom: 1.5rem;
+    }
+    .single-content-body blockquote {
+      border-left: 4px solid var(--confapi-blue);
+      background: var(--ink-bg-warm);
+      padding: 1.25rem 1.75rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+      font-size: 1rem;
+      color: var(--confapi-navy);
+    }
+    .single-content-body ul, .single-content-body ol {
+      margin: 1rem 0 1.75rem 1.75rem;
+    }
+    .single-content-body li {
+      margin-bottom: 0.6rem;
+    }
+    .single-content-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+    .single-content-body th {
+      background: var(--confapi-navy);
+      color: #FFFFFF;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    .single-content-body td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--ink-border);
+    }
+    .single-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .assistance-card {
+      background: var(--confapi-navy);
+      color: #FFFFFF;
+      padding: 1.75rem;
+      border-radius: 4px;
+    }
+    .assistance-card h4 {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .assistance-card p {
+      font-size: 0.875rem;
+      color: #CBD5E1;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .related-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .related-item a {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--confapi-navy);
+      line-height: 1.35;
+    }
+    .related-item a:hover {
+      color: var(--confapi-blue);
+    }
+    .related-date {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      font-family: var(--font-meta);
+      margin-top: 0.2rem;
+    }
+    @media (max-width: 900px) {
+      .article-container-grid { grid-template-columns: 1fr; }
+      .single-title { font-size: 2rem; }
+    }
+  </style>
+<link rel="stylesheet" href="/css/presentation-fixes.css">
+<script src="/js/presentation-fixes.js" defer></script>
+</head>
+<body>
+
+  <!-- Tricolore Istituzionale -->
+  <div class="gov-strip"></div>
+
+  <!-- Top Legal Bar -->
+  <aside class="top-bar-legal">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div>
+          <span>Presidio Territoriale di Rappresentanza Datoriale per Roma Capitale e la Regione Lazio</span>
+        </div>
+        <div class="top-bar-right">
+          <span>PEC: <a href="mailto:confapiroma@pec.it" style="color: #E2E8F0;">confapiroma@pec.it</a></span>
+          <a href="/admin" style="color: var(--confapi-amber); font-weight: 700;">🔐 Redazione CMS</a>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-main">
+        <div class="masthead-meta-left">
+          <a href="/" style="font-weight: 700; color: var(--confapi-blue); display: inline-flex; align-items: center; gap: 0.3rem;">
+            ← Torna alla Prima Pagina
+          </a>
+        </div>
+
+        <div class="masthead-brand">
+          <a href="/">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Roma Logo" onerror="this.src='/assets/logos/logo-confapi_1000.png'">
+          </a>
+          <span class="masthead-sub-title">Confederazione Piccola e Media Industria Privata</span>
+        </div>
+
+        <div class="masthead-actions-right">
+          <a href="/come-associarsi" class="btn-editorial-gold">Aderisci a Confapi</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav-strip">
+      <div class="container">
+        <ul class="nav-links-row">
+          <li><a href="/">Prima Pagina</a></li>
+          <li><a href="/#notiziario">Circolari & Notiziario</a></li>
+          <li><a href="/chi-siamo">Chi Siamo</a></li>
+          <li><a href="/#unioni">Unioni di Categoria</a></li>
+          <li><a href="/convenzioni">Convenzioni</a></li>
+          <li><a href="/come-associarsi">Come Associarsi</a></li>
+          <li><a href="/#sportelli">Sportelli & Sede</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Article View Body -->
+  <main class="article-page-layout">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb-nav">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="/#notiziario">Circolari Ufficiali</a>
+        <span>›</span>
+        <span id="bc-category" style="color: var(--confapi-navy); font-weight: 700;">Categoria</span>
+        <span>›</span>
+        <span id="bc-title" style="color: var(--ink-muted);">Dettaglio Circolare</span>
+      </nav>
+
+      <div class="article-container-grid">
+        
+        <!-- Main Article Column -->
+        <article>
+          <header class="single-article-header">
+            <span class="single-kicker" id="art-category-badge">Circolare Ufficiale</span>
+            <h1 class="single-title" id="art-title">Caricamento circolare in corso...</h1>
+            
+            <div class="single-meta-bar">
+              <div>
+                <span id="art-date">Data: --/--/----</span> • 
+                <span id="art-author">A cura di: Ufficio Studi Confapi Roma</span> • 
+                <span id="art-read-time">⏱️ 3 min</span> • 
+                <span id="art-views">👁️ 0 consultazioni</span>
+              </div>
+              <div class="article-action-tools">
+                <button class="btn-tool" onclick="window.print()">🖨️ Stampa Circolare</button>
+                <button class="btn-tool" onclick="shareArticle()">🔗 Condividi</button>
+              </div>
+            </div>
+          </header>
+
+          <!-- Rendered Markdown Body -->
+          <div class="single-content-body" id="art-body">
+            <p>Caricamento del documento...</p>
+          </div>
+
+          <!-- Bottom Operational Help -->
+          <div style="margin-top: 3.5rem; padding: 2rem; background: var(--ink-bg-warm); border: 1px solid var(--ink-border); border-left: 4px solid var(--confapi-amber);">
+            <h4 style="font-family: var(--font-headline); font-size: 1.25rem; color: var(--confapi-navy); margin-bottom: 0.5rem;">
+              Hai bisogno di assistenza o consulenza su questa circolare?
+            </h4>
+            <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-bottom: 1rem;">
+              I funzionari tecnici e legali di Confapi Roma e Lazio sono a disposizione delle aziende associate per chiarimenti operativi, verifiche di ammissibilità e predisposizione delle domande.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="tel:+390669924890" class="btn-editorial-navy">Chiama il Centralino (+39 06 6992 4890)</a>
+              <a href="mailto:segreteria@confapiroma.it" class="btn-editorial-gold">Scrivi all'Ufficio Studi</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="single-sidebar">
+          
+          <!-- Desk Direct Contact Card -->
+          <div class="assistance-card">
+            <h4>Supporto Imprese Confapi</h4>
+            <p>Sei associato o vuoi aderire a Confapi Roma per usufruire di tutti i servizi e dei contratti CCNL?</p>
+            <a href="/come-associarsi" class="btn-editorial-gold" style="width: 100%; justify-content: center;">Scopri Come Associarsi</a>
+          </div>
+
+          <!-- Related Circulars Widget -->
+          <div class="widget-box">
+            <div class="widget-title">Altre Circolari Correlate</div>
+            <ul class="related-list" id="related-articles-list">
+              <li>Caricamento approfondimenti...</li>
+            </ul>
+          </div>
+
+          <!-- Quick Links Widget -->
+          <div class="widget-box">
+            <div class="widget-title">Servizi & Contratti</div>
+            <ul class="widget-list">
+              <li><a href="/#unioni"><span>Unionmeccanica Meccanica</span> <span>→</span></a></li>
+              <li><a href="/#unioni"><span>ANIEM Edilizia Roma</span> <span>→</span></a></li>
+              <li><a href="/#sistema-confapi"><span>Formazione FAPI 0,30%</span> <span>→</span></a></li>
+              <li><a href="/#sistema-confapi"><span>Welfare ENFEA Salute</span> <span>→</span></a></li>
+            </ul>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Istituzionale -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <img src="/assets/logos/logo-confapi_800.png" alt="Confapi Logo" style="height: 38px; background: white; padding: 3px 6px; border-radius: 2px;" onerror="this.style.display='none'">
+            <strong style="color: #FFFFFF; font-size: 1rem;">CONFAPI ROMA</strong>
+          </div>
+          <p style="line-height: 1.6; margin-bottom: 1rem;">
+            Confederazione Italiana della Piccola e Media Industria Privata.<br>
+            Associazione Territoriale di Roma e del Lazio.<br>
+            Tutela dell'autonomia, della rappresentanza e della competitività d'impresa dal 1947.
+          </p>
+          <div style="color: var(--confapi-amber); font-weight: 700;">C.F. / P.IVA: 97063420586</div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Unioni di Categoria</h5>
+          <ul>
+            <li><a href="/#unioni">Unionmeccanica</a></li>
+            <li><a href="/#unioni">ANIEM Edilizia</a></li>
+            <li><a href="/#unioni">Confapi Sanità</a></li>
+            <li><a href="/#unioni">Confapi Servizi ICT</a></li>
+            <li><a href="/#unioni">Unionalimentari</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Servizi & Contratti</h5>
+          <ul>
+            <li><a href="/#unioni">Contrattazione CCNL</a></li>
+            <li><a href="/#notiziario">Finanza 5.0 & Bandi</a></li>
+            <li><a href="/#sistema-confapi">Formazione FAPI</a></li>
+            <li><a href="/convenzioni">Convenzioni Nazionali</a></li>
+            <li><a href="/come-associarsi">Come Associarsi</a></li>
+            <li><a href="/admin">Portale CMS Redazione</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Presidio Sede</h5>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Sede di Roma: Presidio Istituzionale</p>
+          <p style="color: #CBD5E1; margin-bottom: 0.5rem;">Centralino: <strong>+39 06 6992 4890</strong></p>
+          <p style="color: #CBD5E1; margin-bottom: 1rem;">PEC: <code>confapiroma@pec.it</code></p>
+          <a href="/come-associarsi" class="btn-editorial-gold" style="font-size: 0.75rem; padding: 0.5rem 0.85rem;">Richiedi Iscrizione</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 CONFAPI ROMA E LAZIO — Tutti i diritti riservati.</span>
+        <span>Aderente alla Confederazione Nazionale CONFAPI (Confapi.org)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script: Load Article dynamically by URL parameter or path -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Extract article ID from URL path (e.g. /articolo/art-1 or query string ?id=art-1)
+      const pathParts = window.location.pathname.split('/');
+      let articleId = pathParts[pathParts.length - 1];
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('id')) {
+        articleId = urlParams.get('id');
+      }
+
+      if (!articleId || articleId === 'articolo.html' || articleId === 'articolo') {
+        articleId = 'art-1'; // Default fallback
+      }
+
+      fetchArticleDetail(articleId);
+    });
+
+    async function fetchArticleDetail(id) {
+      try {
+        const res = await fetch(`/api/articles/${encodeURIComponent(id)}`);
+        const json = await res.json();
+        
+        if (json.success && json.data) {
+          const art = json.data;
+          document.title = `${art.title} — Circolare Ufficiale CONFAPI ROMA`;
+          document.getElementById('bc-category').innerText = art.category;
+          document.getElementById('bc-title').innerText = art.title;
+          document.getElementById('art-category-badge').innerText = art.category;
+          document.getElementById('art-title').innerText = art.title;
+          document.getElementById('art-date').innerText = `Data: ${art.publishDate || 'Recente'}`;
+          document.getElementById('art-author').innerText = `A cura di: ${art.author || 'Ufficio Studi Confapi Roma'}`;
+          document.getElementById('art-read-time').innerText = `⏱️ ${art.readTime || '3 min'}`;
+          document.getElementById('art-views').innerText = `👁️ ${art.views || 1} consultazioni`;
+
+          // Markdown parsing
+          let parsedHtml = art.content || '';
+          if (typeof marked !== 'undefined') {
+            parsedHtml = marked.parse(parsedHtml);
+            parsedHtml = parsedHtml.replace(/<blockquote>\s*<p>\[!NOTE\]/g, '<blockquote><p><strong>📘 NOTA OPERATIVA:</strong>');
+            parsedHtml = parsedHtml.replace(/<blockquote>\s*<p>\[!IMPORTANT\]/g, '<blockquote style="border-left-color: var(--confapi-amber);"><p><strong>⚠️ AVVISO IMPORTANTE:</strong>');
+          }
+          document.getElementById('art-body').innerHTML = parsedHtml;
+
+          // Load related articles
+          loadRelatedArticles(art.category, art.id);
+        } else {
+          document.getElementById('art-title').innerText = 'Circolare non trovata';
+          document.getElementById('art-body').innerHTML = '<p>La circolare richiesta non è presente nel database o è stata rimossa.</p><p><a href="/">← Torna alla Prima Pagina</a></p>';
+        }
+      } catch (err) {
+        console.error('Error loading article:', err);
+        document.getElementById('art-title').innerText = 'Errore di connessione'; document.getElementById('art-body').textContent = 'Ricarica la pagina per riprovare.'; document.getElementById('related-articles-list').textContent = 'Contenuti non disponibili.';
+      }
+    }
+
+    async function loadRelatedArticles(category, currentId) {
+      try {
+        const res = await fetch(`/api/articles?status=published&category=${encodeURIComponent(category)}`);
+        const json = await res.json();
+        if (json.success) {
+          const related = json.data.filter(a => a.id !== currentId).slice(0, 5);
+          const list = document.getElementById('related-articles-list');
+          if (related.length > 0) {
+            list.innerHTML = related.map(a => `
+              <li class="related-item">
+                <a href="/articolo/${a.id}">${escapeHtml(a.title)}</a>
+                <div class="related-date">📅 ${escapeHtml(a.publishDate || 'Recente')} • ⏱️ ${a.readTime || '3 min'}</div>
+              </li>
+            `).join('');
+          } else {
+            list.innerHTML = '<li style="font-size: 0.8rem; color: var(--ink-muted);">Nessun altro articolo nella stessa categoria.</li>';
+          }
+        }
+      } catch (e) {}
+    }
+
+    function shareArticle() {
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          url: window.location.href
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link della circolare copiato negli appunti!');
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>
