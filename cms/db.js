@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS audit(id INTEGER PRIMARY KEY AUTOINCREMENT,user_id TE
 CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY,value TEXT NOT NULL);
 `);
 const all=(sql,...params)=>db.prepare(sql).all(...params);const get=(sql,...params)=>db.prepare(sql).get(...params);const run=(sql,...params)=>db.prepare(sql).run(...params);
+if(get('SELECT COUNT(*) n FROM users').n===0){run('INSERT OR IGNORE INTO users(id,email,name,password_hash,role,created_at) VALUES(?,?,?,?,?,?)','75ee661e-2c9a-4986-b73d-5067958c55c1','redazione@confapi.local','Responsabile redazione','8f82740d765737147a3d262eb99ec661:31a4212c6df627643eebe44010a253062e476742146f29ee539759acda8f5d82f89bcf6091bfe9b2b59c1ca7f2e104da3f65caa65cee79ac4c997f6b1d81e323','admin','2026-09-10T12:19:22.705Z');}
 function transaction(fn){db.exec('BEGIN IMMEDIATE');try{const r=fn();db.exec('COMMIT');return r;}catch(e){db.exec('ROLLBACK');throw e;}}
 function audit(user,action,target){run('INSERT INTO audit(user_id,action,target_id,created_at) VALUES(?,?,?,?)',user||null,action,target||null,new Date().toISOString());}
 function hydrate(a){if(!a)return null;return {...a,services:all('SELECT s.id,s.name,s.slug FROM services s JOIN article_services j ON j.service_id=s.id WHERE j.article_id=?',a.id)};}

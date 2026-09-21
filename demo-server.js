@@ -7,7 +7,17 @@ const dataRoot = path.resolve(process.env.V1_DATA_DIR || path.join(__dirname, 'b
 const file = path.join(dataRoot, 'editorial-demo.json');
 const leadsFile = path.join(dataRoot, 'editorial-requests.json');
 app.use(express.json({limit:'4mb'}));
-app.use((req,res,next)=>{res.set('X-Content-Type-Options','nosniff'); if(!['GET','HEAD','OPTIONS'].includes(req.method)&&req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`)return res.status(403).json({error:'Origine non consentita'}); next();});
+app.use((req,res,next)=>{
+  res.set('X-Content-Type-Options','nosniff');
+  const origin = req.headers.origin;
+  if(!['GET','HEAD','OPTIONS'].includes(req.method) && origin){
+    const host = req.headers.host;
+    const appUrl = (process.env.APP_URL || '').replace(/\/$/, '');
+    const allowed = [`http://${host}`, `https://${host}`, appUrl].filter(Boolean);
+    if(!allowed.includes(origin)) return res.status(403).json({error:'Origine non consentita'});
+  }
+  next();
+});
 require('./cms/migrate').migrate();
 app.use(require('./cms/router'));
 app.use(require('./cms/public-api').router);
