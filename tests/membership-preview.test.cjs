@@ -1,6 +1,6 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../public/js/membership-flow.js'),'utf8');
-const preview=source.slice(source.indexOf('async function pdf('),source.indexOf("$$('[data-preview-pdf]')")).replace("await import('/vendor/pdfjs/pdf.min.mjs')",'pdfjsStub');
+const preview=source.slice(source.indexOf('async function pdf('),source.indexOf("$$('[data-preview-pdf]')")).replace(/await import\('\/vendor\/pdfjs\/pdf\.min\.(mjs|js)'\)/,'pdfjsStub');
 function setup(){
  const events=[],frame={scrollTop:0,replaceChildren(){events.push('render');}},panel={hidden:false,scrollIntoView(){}},state={value:{fields:{company:'Prima'}},response:null};
  const context={JSON,Uint8Array,Error,URL:{createObjectURL:()=> 'blob:test',revokeObjectURL(){}},clearTimeout(){},setTimeout(){},events,state,form:{isConnected:true},error:{textContent:''},$:s=>s==='#pdf-frame'?frame:panel,$$:()=>[],data:()=>state.value,markPreview:(message,stale=true)=>events.push({message,stale}),say:message=>events.push({error:message}),schedulePreview:()=>events.push('schedule'),fetch:()=>state.response,document:{createDocumentFragment:()=>({append(){}}),createElement:()=>({setAttribute(){},click(){}})},pdfjsStub:{GlobalWorkerOptions:{},getDocument:()=>({promise:Promise.resolve({numPages:1,getPage:async()=>({getViewport:()=>({width:600,height:800}),render:()=>({promise:Promise.resolve()})}),destroy:async()=>{}})})}};

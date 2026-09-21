@@ -15,7 +15,7 @@ async function pdf(download=false,completed=false,automatic=false){
   const blob=await response.blob();if(!form.isConnected)return;
   if(download){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=completed?'domanda-adesione-confapi-firmata.pdf':'bozza-adesione-confapi.pdf';a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);return;}
   if(snapshot!==JSON.stringify(data())){refreshPending=true;return;}
-  const pdfjs=await import('/vendor/pdfjs/pdf.min.mjs');pdfjs.GlobalWorkerOptions.workerSrc='/vendor/pdfjs/pdf.worker.min.mjs';
+  const pdfjs=await import('/vendor/pdfjs/pdf.min.js');pdfjs.GlobalWorkerOptions.workerSrc='/vendor/pdfjs/pdf.worker.min.js';
   const documentPDF=await pdfjs.getDocument({data:new Uint8Array(await blob.arrayBuffer()),standardFontDataUrl:'/vendor/pdfjs/standard_fonts/',cMapUrl:'/vendor/pdfjs/cmaps/',cMapPacked:true,wasmUrl:'/vendor/pdfjs/wasm/'}).promise;
   const pages=document.createDocumentFragment();
   try{for(let n=1;n<=documentPDF.numPages;n++){const page=await documentPDF.getPage(n),viewport=page.getViewport({scale:1.7}),canvas=document.createElement('canvas');canvas.width=viewport.width;canvas.height=viewport.height;canvas.setAttribute('role','img');canvas.setAttribute('aria-label','Pagina '+n+' della domanda compilata. Puoi anche scaricare il PDF.');pages.append(canvas);await page.render({canvas,viewport}).promise;}}finally{await documentPDF.destroy();}
